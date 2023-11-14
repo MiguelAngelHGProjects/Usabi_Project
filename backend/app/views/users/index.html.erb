@@ -1,0 +1,16 @@
+<!-- app/views/users/index.html.erb -->
+
+<h1>List of Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <strong>Icon:</strong> <%= user.icon %><br>
+      <strong>Name:</strong> <%= user.name %><br>
+      <strong>Lastname:</strong> <%= user.lastname %><br>
+      <strong>Email:</strong> <%= user.email %><br>
+      <strong>Type:</strong> <%= user.user_type %><br>
+      <!-- Include other user attributes as needed -->
+    </li>
+  <% end %>
+</ul>
