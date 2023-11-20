@@ -22,13 +22,12 @@ Devise.setup do |config|
   end
 
   config.navigational_formats = ['*/*', :html, :json]
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '5554084576929ef509b09d79a882719f62ea6e9d0d952d750908ef2113b905b45aaee74b66d8175b70759af8bc63ae226979a4836fdd64df516ff5bd70e4807a'
+  #config.secret_key = '5554084576929ef509b09d79a882719f62ea6e9d0d952d750908ef2113b905b45aaee74b66d8175b70759af8bc63ae226979a4836fdd64df516ff5bd70e4807a'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
