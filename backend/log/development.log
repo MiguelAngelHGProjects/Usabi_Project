@@ -4759,3 +4759,648 @@ Processing by CurrentUserController#index as */*
 Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1488)
 
 
+Started GET "/users" for ::1 at 2023-11-20 19:12:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 95ms (Views: 3.3ms | ActiveRecord: 11.4ms | Allocations: 194228)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:12:49 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.4ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 2.2ms | Allocations: 3934)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:12:50 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 3917)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:12:52 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.7ms | Allocations: 3917)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:12:52 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.2ms | Allocations: 3898)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:12:52 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 3898)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:15:04 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 87ms (Views: 3.6ms | ActiveRecord: 9.7ms | Allocations: 192259)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:15:04 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 1.5ms | Allocations: 3924)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 19:16:48 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:4000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 91ms (ActiveRecord: 8.2ms | Allocations: 181827)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 19:16:48 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 376)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 6454)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:17:06 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.47ms)
+Completed 200 OK in 29ms (Views: 3.4ms | ActiveRecord: 4.5ms | Allocations: 14886)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:17:06 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+Completed 200 OK in 27ms (Views: 1.4ms | ActiveRecord: 3.9ms | Allocations: 3922)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:17:28 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 87ms (Views: 3.2ms | ActiveRecord: 9.5ms | Allocations: 192259)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:17:28 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 19ms (Views: 1.1ms | ActiveRecord: 2.3ms | Allocations: 3924)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:17 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 10ms (Views: 1.4ms | ActiveRecord: 1.4ms | Allocations: 3921)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:17 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 1.5ms | Allocations: 3921)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:18 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 1.6ms | Allocations: 3921)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:18 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 1.2ms | Allocations: 3902)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:20 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 3902)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:21 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 3902)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:32 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 3902)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:32 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 3902)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:45 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 107ms (Views: 3.4ms | ActiveRecord: 9.1ms | Allocations: 192260)
+
+
+Started GET "/users" for ::1 at 2023-11-20 19:18:46 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `new'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 3905)
+
+
+Started GET "/login" for ::1 at 2023-11-20 19:27:58 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#new as HTML
+User object: #<User id: nil, name: nil, lastname: nil, email: nil, icon: nil, user_type: nil, created_at: nil, updated_at: nil, jti: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 77ms (Views: 1.4ms | ActiveRecord: 7.3ms | Allocations: 185432)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-11-20 19:27:59 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/login" for ::1 at 2023-11-20 19:32:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#new as HTML
+User object: #<User id: nil, name: nil, lastname: nil, email: nil, icon: nil, user_type: nil, created_at: nil, updated_at: nil, jti: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 200 OK in 78ms (Views: 1.5ms | ActiveRecord: 7.3ms | Allocations: 185209)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:36:21 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+User object: #<User id: nil, name: nil, lastname: nil, email: nil, icon: nil, user_type: nil, created_at: nil, updated_at: nil, jti: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 76ms (Views: 1.8ms | ActiveRecord: 8.2ms | Allocations: 184655)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:41:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+User object: #<User id: nil, name: nil, lastname: nil, email: nil, icon: nil, user_type: nil, created_at: nil, updated_at: nil, jti: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 78ms (Views: 1.5ms | ActiveRecord: 8.4ms | Allocations: 184656)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:44:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+User object: #<User id: nil, name: nil, lastname: nil, email: nil, icon: nil, user_type: nil, created_at: nil, updated_at: nil, jti: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 89ms (Views: 1.3ms | ActiveRecord: 7.4ms | Allocations: 184662)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 19:47:26 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14:in `create'
+User object: #<User id: 1, name: "miguel", lastname: "angel", email: "miguelangel@gmail.com", icon: "prueba.jpg", user_type: "user", created_at: "2023-11-17 17:49:18.407999000 +0000", updated_at: "2023-11-17 17:49:18.407999000 +0000", jti: "c61e95e4-f481-4b93-b01f-34337dfac465">
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 206ms (Views: 1.7ms | ActiveRecord: 2.5ms | Allocations: 8870)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:51:12 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 535)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 85ms (Views: 1.2ms | ActiveRecord: 10.5ms | Allocations: 184556)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:53:48 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 535)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 76ms (Views: 1.0ms | ActiveRecord: 8.4ms | Allocations: 184557)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:58:19 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 305)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 3.4ms | Allocations: 10820)
+
+
+Started POST "/login" for ::1 at 2023-11-20 19:59:24 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2762)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<Users::SessionsController:0x00000000011288>):
+  
+app/controllers/users/sessions_controller.rb:14:in `create'
+Started POST "/login" for ::1 at 2023-11-20 19:59:41 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameters: :email, :password, :session. Context: { controller: Users::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f61cd50d648>, params: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "controller"=>"users/sessions", "action"=>"create", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}} }[0m
+Completed 401 Unauthorized in 348399ms (ActiveRecord: 0.0ms | Allocations: 184554)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:05:29 +0000
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 26ms (Views: 1.0ms | ActiveRecord: 5.9ms | Allocations: 12153)
+
+
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 200 OK in 2235ms (Views: 0.8ms | ActiveRecord: 4.6ms | Allocations: 107947)
+
+
+Started GET "/current_user" for 127.0.0.1 at 2023-11-20 20:06:42 +0000
+Processing by CurrentUserController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/current_user_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (18.55ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.7ms | Allocations: 23326)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/current_user_controller.rb:6:in `index'
+Started GET "/current_user" for 127.0.0.1 at 2023-11-20 20:07:30 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CurrentUserController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/current_user_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (22.12ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 10.5ms | Allocations: 211303)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/current_user_controller.rb:6:in `index'
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:08:43 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:4000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1974)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 20:08:43 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 376)
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 6423)
+
+
+Started GET "/current_user" for 127.0.0.1 at 2023-11-20 20:09:10 +0000
+Processing by CurrentUserController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/current_user_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (24.92ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.7ms | Allocations: 21172)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/current_user_controller.rb:6:in `index'
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:11:30 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:4000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms | Allocations: 1587)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 20:11:30 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 248)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:11:45 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelankkgel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14:in `create'
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.8ms | Allocations: 2131)
+
+
+Processing by Users::SessionsController#new as */*
+  Parameters: {"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelankkgel@gmail.com", "password"=>"[FILTERED]"}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 189ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 3259)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:12:05 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 186ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 2582)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:12:54 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:4000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 2.0ms | Allocations: 7738)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 20:12:54 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/miguel/.rvm/gems/ruby-3.0.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 313)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 1231)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:13:01 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 32335ms (Views: 0.8ms | ActiveRecord: 2.5ms | Allocations: 143368)
+
+
+Started POST "/login" for ::1 at 2023-11-20 20:13:43 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 95256ms (ActiveRecord: 0.0ms | Allocations: 87320)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 442)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-20 20:15:25 +0000
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+Started POST "/login" for ::1 at 2023-11-20 20:16:56 +0000
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:15:in `create'
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 14238ms (ActiveRecord: 0.0ms | Allocations: 86222)
+
+
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 104752ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 175993)
+
+
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 363)
+
+
+Started POST "/login" for ::1 at 2023-11-20 20:17:44 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"miguelangel@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "miguelangel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 8494ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 86376)
+
+
