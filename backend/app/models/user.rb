@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: self
 
-  has_one_attached :icon
+         has_one_attached :icon
 
   validates :name, presence: true
   validates :lastname, presence: true

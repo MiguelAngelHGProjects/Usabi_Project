@@ -1,10 +1,11 @@
-# app/controllers/users/registrations_controller.rb
 class Users::RegistrationsController < Devise::RegistrationsController
   include RackSessionFix
   respond_to :json
 
   def create
     build_resource(sign_up_params)
+
+    resource.icon.attach(params[:user][:icon]) if params[:user][:icon].present?
 
     if resource.save
       yield resource if block_given?
@@ -19,8 +20,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation, :icon, :user_type)
-  end
+    params.require(:user).permit(:name, :lastname, :email, :password, :icon, :user_type)
+  end  
 
   def respond_with_resource(resource, message)
     if resource.persisted?
@@ -32,7 +33,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       respond_with_errors(resource.errors)
     end
   end
-  
 
   def respond_with_errors(errors)
     render json: {

@@ -17,24 +17,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: {
-        status: { code: 201, message: 'User created successfully.' },
-        data: UserSerializer.new(@user).as_json
-      }, status: :created
-    else
+    super do |user|
+      token = Warden::JWTAuth::UserEncoder.new.call(user, :user, nil)
+      response.headers['Authorization'] = "Bearer #{token}"
+      render json: UserSerializer.new(user).as_json.except('token'), status: :ok and return
+    end
+  end
+  
+  def update
+    if user_params[:password].present? && !@user.update_with_password(user_params)
       render json: {
         status: 422,
         error: "Unprocessable Entity",
         message: @user.errors.full_messages.join(', ')
       }, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @user.update(user_params)
+    elsif @user.update(user_params.except(:password))
       render json: {
         status: { code: 200, message: 'User updated successfully.' },
         data: UserSerializer.new(@user).as_json
@@ -47,9 +44,11 @@ class UsersController < ApplicationController
       }, status: :unprocessable_entity
     end
   end
+  
 
   def destroy
-    @user.destroy
+    user = User.find(params[:id])
+    user.destroy
     head :no_content
   end
 

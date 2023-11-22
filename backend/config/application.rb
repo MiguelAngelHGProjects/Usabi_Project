@@ -17,6 +17,5 @@ module Backend
 
     config.api_only = false
 
-    config.session_store :cookie_store, key: 'a441b0c01d8316e27fd17ed20d94717889456aefdf7929488582f7d0fcdda17105df9d729adf1961f9dde25ffbfe0166111d79e2bbed2bac7c256c40cbfad897'
   end
 end

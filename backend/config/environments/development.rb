@@ -7,8 +7,6 @@ Rails.application.configure do
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.enable_reloading = true
-  
-  config.action_mailer.default_url_options = { host: 'localhost', port: 4000 }
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -18,6 +16,8 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
+
+  Rails.application.routes.default_url_options[:host] = 'localhost:4000'
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -31,6 +31,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  config.action_controller.raise_on_missing_callback_actions = false
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

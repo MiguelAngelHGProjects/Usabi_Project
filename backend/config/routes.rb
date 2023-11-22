@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # Current user routes
+  # Current user route
   get '/current_user', to: 'current_user#index'
 
   # Users resource routes
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show, :destroy]
 end

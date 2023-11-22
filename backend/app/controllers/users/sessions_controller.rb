@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   include RackSessionFix
   respond_to :json
-
+  before_action :authenticate_user!, only: [:destroy] 
   # Override the set_flash_message method with an empty implementation
   def set_flash_message(key, kind, options = {})
   end
@@ -17,6 +17,22 @@ class Users::SessionsController < Devise::SessionsController
 
     respond_with(resource, location: after_sign_in_path_for(resource))
   end
+
+  def destroy
+    if current_user
+      sign_out(current_user)
+      render json: {
+        status: 200,
+        message: 'Logged out successfully.'
+      }, status: :ok
+    else
+      render json: {
+        status: 401,
+        message: "Couldn't find an active session."
+      }, status: :unauthorized
+    end
+  end
+  
 
   private
 
