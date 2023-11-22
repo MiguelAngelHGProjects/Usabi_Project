@@ -14418,3 +14418,42 @@ Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1121)
 
   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
   [1m[36mUser Update (5.7ms)[0m  [1m[33mUPDATE "users" SET "jti" = $1 WHERE "users"."id" = $2[0m  [["jti", "8d6143e7-3efa-4d60-8cda-797d393c29e3"], ["id", 17]]
+Started POST "/login" for ::1 at 2023-11-22 18:45:24 +0000
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 17], ["record_type", "User"], ["name", "icon"], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:7:in `icon'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `icon'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 184ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 3289)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--bff0916a867b188e8f3c96da21591ed712696b12/prueba.jpg" for ::1 at 2023-11-22 18:46:21 +0000
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--bff0916a867b188e8f3c96da21591ed712696b12", "filename"=>"prueba"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[36m  Disk Storage (3.2ms) [0m[34mGenerated URL for file at key: s5d123yvwksd05yfasmw2jczq0hp (http://localhost:4000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJzNWQxMjN5dndrc2QwNXlmYXNtdzJqY3pxMGhwIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicHJ1ZWJhLmpwZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3BydWViYS5qcGciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yMlQxODo1MToyMS4yNTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--82a41261e66df11559c01174fab0df5a3868556f/prueba.jpg)[0m
+Redirected to http://localhost:4000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJzNWQxMjN5dndrc2QwNXlmYXNtdzJqY3pxMGhwIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicHJ1ZWJhLmpwZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3BydWViYS5qcGciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yMlQxODo1MToyMS4yNTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--82a41261e66df11559c01174fab0df5a3868556f/prueba.jpg
+Completed 302 Found in 23ms (ActiveRecord: 0.2ms | Allocations: 6839)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJzNWQxMjN5dndrc2QwNXlmYXNtdzJqY3pxMGhwIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicHJ1ZWJhLmpwZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3BydWViYS5qcGciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yMlQxODo1MToyMS4yNTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--82a41261e66df11559c01174fab0df5a3868556f/prueba.jpg" for ::1 at 2023-11-22 18:46:21 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"prueba"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started DELETE "/logout" for ::1 at 2023-11-22 18:46:33 +0000
+Processing by Users::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:54:in `respond_to_on_destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1122)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "jti" = $1 WHERE "users"."id" = $2[0m  [["jti", "90571fe7-0c09-4adf-929f-d77b95e4056e"], ["id", 17]]
