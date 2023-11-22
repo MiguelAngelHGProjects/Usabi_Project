@@ -18,21 +18,19 @@ class Users::SessionsController < Devise::SessionsController
     respond_with(resource, location: after_sign_in_path_for(resource))
   end
 
-  def destroy
-    if current_user
-      sign_out(current_user)
-      render json: {
-        status: 200,
-        message: 'Logged out successfully.'
-      }, status: :ok
-    else
-      render json: {
-        status: 401,
-        message: "Couldn't find an active session."
-      }, status: :unauthorized
-    end
+def destroy
+  if user_signed_in?
+    sign_out(current_user)
+    render json: {
+      status: { code: 200, message: 'Logged out successfully.' }
+    }, status: :ok
+  else
+    render json: {
+      status: 401,
+      message: "Couldn't find an active session."
+    }, status: :unauthorized
   end
-  
+end
 
   private
 
@@ -40,7 +38,8 @@ class Users::SessionsController < Devise::SessionsController
   if resource.present?
     render json: {
       status: { code: 200, message: 'Logged in successfully.' },
-      data: UserSerializer.new(resource).as_json
+      data: UserSerializer.new(resource).as_json,
+      token: request.env["warden-jwt_auth.token"],
     }, status: :ok
   else
     render json: {
