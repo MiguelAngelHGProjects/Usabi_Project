@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :playlists
+  resources :schedules
+  resources :projects
   # Devise routes
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

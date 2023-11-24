@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_15_160431) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_194600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,22 +44,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_160431) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "PlaylistOrder"
-    t.string "Project_id"
+    t.string "ProjectId"
     t.string "WorkAutor"
     t.string "WorkName"
     t.string "WorkDuration"
-    t.string "PaylistString"
+    t.string "PlaylistString"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "PlaylistID", null: false
+    t.string "PlaylistId"
     t.string "Season"
     t.string "ProjectNote"
-    t.string "ProjetDateIni"
+    t.string "ProjectDateIni"
     t.string "ProjectDateEnd"
-    t.string "ProjectRevision"
+    t.string "Projectevision"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,9 +67,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_160431) do
   create_table "schedules", force: :cascade do |t|
     t.string "ProjectId"
     t.string "Room"
-    t.string "ScheduleTipe"
+    t.string "ScheduleType"
     t.string "ScheduleName"
-    t.string "SchedueHourRange"
+    t.string "ScheduleDate"
+    t.string "ScheduleHourRange"
     t.string "ScheduleNote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,6 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_160431) do
     t.string "name"
     t.string "lastname"
     t.string "email"
+    t.string "password"
     t.string "icon"
     t.string "user_type"
     t.datetime "created_at", null: false
