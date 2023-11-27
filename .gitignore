@@ -119,3 +119,13 @@ package-lock.json
 # Ignore coverage directory for Cypress.
 /cypress/screenshots
 /cypress/videos
+
+# Ignore storage
+/backend/storage/*
+
+# Ignore tmp
+/backend/tmp/*
+
+# Ignore log
+/backend/log/*
+!/backend/log/.keep
