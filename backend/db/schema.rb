@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_153738) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,11 +57,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_153738) do
     t.integer "PlaylistId"
     t.string "Season"
     t.string "ProjectNote"
-    t.date "ProjectDateIni"
-    t.date "ProjectDateEnd"
-    t.string "Projectevision"
+    t.text "projectDateRange"
+    t.string "Projectrevision"
+    t.text "projectImage_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "project_date_ini"
+    t.date "project_date_end"
   end
 
   create_table "schedules", force: :cascade do |t|

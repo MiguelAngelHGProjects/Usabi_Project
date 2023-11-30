@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[show edit update destroy]
+  include Rails.application.routes.url_helpers
 
   # GET /projects or /projects.json
   def index
     @projects = Project.all
+    render json: @projects
   end
 
   # GET /projects/1 or /projects/1.json
@@ -22,15 +24,12 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    parse_date_range_params
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      render json: @project, status: :created
+    else
+      render json: @project.errors, status: :unprocessable_entity
     end
   end
 
@@ -38,33 +37,68 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
+        purge_project_image_if_needed
+        attach_project_image
+        format.html { redirect_to project_url(@project), notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end  
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
-    @project.destroy!
+    if @project.destroy
+      render json: { message: 'Project deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete project' }, status: :unprocessable_entity
+    end
+  end
 
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
-      format.json { head :no_content }
+  def projectImage_data
+    if object.projectImage.attached?
+      {
+        url: url_for(object.projectImage),
+        filename: object.projectImage.filename.to_s,
+        content_type: object.projectImage.content_type,
+        size: object.projectImage.byte_size,
+      }
+    else
+      {}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:PlaylistId, :Season, :ProjectNote, :ProjectDateIni, :ProjectDateEnd, :Projectevision)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
+  
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:PlaylistId, :Season, :ProjectNote, :Projectrevision, :projectImage, :projectDateRange)
+  end
+
+  def parse_date_range_params
+    if params[:projectDateRange].present?
+      date_range_parts = params[:projectDateRange].split(' to ')
+      # Validar que ambos extremos del rango estén presentes antes de asignar
+      @project.project_date_ini = date_range_parts[0].present? ? Date.parse(date_range_parts[0]) : nil
+      @project.project_date_end = date_range_parts[1].present? ? Date.parse(date_range_parts[1]) : nil
     end
+  end
+  
+  
+  def purge_project_image_if_needed
+    @project.projectImage.purge if params.dig(:project, :projectImage, :purge) == '1'
+  end
+  
+  def attach_project_image
+    if params[:project][:projectImage].present?
+      @project.projectImage.attach(params[:project][:projectImage])
+    end
+  end
 end
