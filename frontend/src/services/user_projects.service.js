@@ -75,12 +75,33 @@ const userProjectsService = {
       throw error;
     }
   },
+  
   getUsers: async () => {
     try {
       const response = await axios.get(`${backendUrl}/users`);
       return response.data;
     } catch (error) {
       console.error('Error getting users:', error);
+      throw error;
+    }
+  },
+
+  getUserById: async (userId) => {
+    try {
+      const response = await axios.get(`${backendUrl}/users/${userId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error getting user with ID ${userId}:`, error);
+      throw error;
+    }
+  },
+  
+  getProjectById: async (projectId) => {
+    try {
+      const response = await axios.get(`${backendUrl}/projects/${projectId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error getting project with ID ${projectId}:`, error);
       throw error;
     }
   },

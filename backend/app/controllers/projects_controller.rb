@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    render json: project_response_data(@project)
   end
 
   # GET /projects/new
@@ -27,7 +28,7 @@ class ProjectsController < ApplicationController
     parse_date_range_params
 
     if @project.save
-      render json: @project, status: :created
+      render json: project_response_data(@project), status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -40,13 +41,13 @@ class ProjectsController < ApplicationController
         purge_project_image_if_needed
         attach_project_image
         format.html { redirect_to project_url(@project), notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
+        format.json { render json: project_response_data(@project), status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
-  end  
+  end
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
@@ -57,26 +58,45 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def projectImage_data
-    if object.projectImage.attached?
-      {
-        url: url_for(object.projectImage),
-        filename: object.projectImage.filename.to_s,
-        content_type: object.projectImage.content_type,
-        size: object.projectImage.byte_size,
-      }
-    else
-      {}
-    end
+  private
+
+  def project_response_data(project)
+    {
+      id: project.id,
+      PlaylistId: project.PlaylistId,
+      Season: project.Season,
+      ProjectNote: project.ProjectNote,
+      project_date_ini: project.project_date_ini&.strftime('%Y-%m-%d'),
+      project_date_end: project.project_date_end&.strftime('%Y-%m-%d'),
+      Projectrevision: project.Projectrevision,
+      projectDateRange: date_range_string(project),
+      projectImage_data: project_image_data(project)
+    }
   end
 
-  private
+  def date_range_string(project)
+    return unless project.project_date_ini && project.project_date_end
+
+    "#{project.project_date_ini.strftime('%Y-%m-%d')} to #{project.project_date_end.strftime('%Y-%m-%d')}"
+  end
+
+  def project_image_data(project)
+    return {} unless project.projectImage.attached?
+
+    {
+      url: url_for(project.projectImage),
+      filename: project.projectImage.filename.to_s,
+      content_type: project.projectImage.content_type,
+      size: project.projectImage.byte_size,
+      created_at: project.projectImage.created_at
+    }
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
   end
-  
+
   # Only allow a list of trusted parameters through.
   def project_params
     params.require(:project).permit(:PlaylistId, :Season, :ProjectNote, :Projectrevision, :projectImage, :projectDateRange)
@@ -90,12 +110,11 @@ class ProjectsController < ApplicationController
       @project.project_date_end = date_range_parts[1].present? ? Date.parse(date_range_parts[1]) : nil
     end
   end
-  
-  
+
   def purge_project_image_if_needed
     @project.projectImage.purge if params.dig(:project, :projectImage, :purge) == '1'
   end
-  
+
   def attach_project_image
     if params[:project][:projectImage].present?
       @project.projectImage.attach(params[:project][:projectImage])

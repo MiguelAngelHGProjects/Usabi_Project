@@ -5,6 +5,9 @@
   }
   
   .rel-form{ 
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 7px;
     align-self: center;
     box-sizing: border-box;
@@ -17,7 +20,7 @@
     padding: 20px;
   }
   
-  .rel-form label {
+  .rel-form label {  
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -67,6 +70,8 @@
   }
 
   .form-labels {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    width: 35%;
+    height: 60%;
+    padding: 3%;
+    margin: 10px
   }
