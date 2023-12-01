@@ -69,6 +69,7 @@ const UserProjectForm = () => {
             return {
               id: userProject.id,
               name: user.data.name,
+              lastname: user.data.lastname,
               Season: projectDetails.Season,
               createdAt: userProject.created_at,
               updatedAt: userProject.updated_at,
@@ -199,7 +200,7 @@ const UserProjectForm = () => {
           <ul>
             {userProjects.map((userProject) => (
               <li key={userProject.id}>
-                <strong>Usuario:</strong> {userProject.name} <strong>Proyecto:</strong> {userProject.Season}
+                <strong>Usuario:</strong> {userProject.name} {userProject.lastname} <strong>Proyecto:</strong> {userProject.Season}
                 <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
                   Eliminar
                 </Button>
