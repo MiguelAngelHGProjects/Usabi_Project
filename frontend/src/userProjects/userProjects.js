@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Select, Button, Form, message } from 'antd';
 import userProjectsService from '../services/user_projects.service';
 import dashboardService from '../services/dashboard.service';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import "./style.css";
+import './style.css';
+
+const { Option } = Select;
 
 const UserProjectForm = () => {
   const navigate = useNavigate();
+  const [form] = Form.useForm();
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [projects, setProjects] = useState([]);
@@ -53,20 +57,14 @@ const UserProjectForm = () => {
   const fetchUserProjects = async () => {
     try {
       const userProjectsData = await userProjectsService.getUserProjects();
-      console.log('User Projects Data:', userProjectsData);
 
-      // Mapea los datos para obtener información detallada de usuario y proyecto
       const detailedUserProjects = await Promise.all(
         userProjectsData.map(async (userProject) => {
           try {
-            // Obtener el nombre del usuario y el proyecto usando las ID proporcionadas
             const [user, projectDetails] = await Promise.all([
               userProjectsService.getUserById(userProject.user_id),
               userProjectsService.getProjectById(userProject.project_id),
             ]);
-
-            console.log('User Details:', user);
-            console.log('Project Details:', projectDetails);
 
             return {
               id: userProject.id,
@@ -84,7 +82,6 @@ const UserProjectForm = () => {
 
       setUserProjects(detailedUserProjects);
     } catch (error) {
-      // Manejar errores al obtener proyectos de usuario
       console.error('Error fetching user projects:', error);
       setError('Error fetching user projects: ' + error.message);
     }
@@ -96,9 +93,7 @@ const UserProjectForm = () => {
     }
   }, [user]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     try {
       const userDetails = await dashboardService.getUserDetails();
 
@@ -107,27 +102,29 @@ const UserProjectForm = () => {
         return;
       }
 
-      await userProjectsService.createAdminUserProject({
-        user_id: selectedUser,
-        project_id: selectedProject,
-      }, userDetails);
+      await userProjectsService.createAdminUserProject(
+        {
+          user_id: selectedUser,
+          project_id: selectedProject,
+        },
+        userDetails
+      );
 
-      setSelectedUser('');
-      setSelectedProject('');
+      form.resetFields();
       fetchUserProjects();
     } catch (error) {
       setError('Error creating user project: ' + error.message);
     }
   };
+
   const deleteUserProject = async (projectId) => {
     try {
-      // Lógica para eliminar el proyecto de usuario con el projectId
       await userProjectsService.deleteUserProject(projectId);
-
-      // Actualizar la lista de proyectos de usuario después de la eliminación
       fetchUserProjects();
+      message.success('Proyecto eliminado exitosamente.');
     } catch (error) {
       setError('Error deleting user project: ' + error.message);
+      message.error('Error al eliminar el proyecto de usuario.');
     }
   };
 
@@ -138,61 +135,74 @@ const UserProjectForm = () => {
           <Header title="Relaciones" />
         </div>
         <div>
-          <form onSubmit={handleSubmit} className="rel-form" aria-labelledby="form-title">
-            <label className='form-labels' htmlFor="user-select">
-              <h3>Usuarios :</h3>
-              <select
-                id="user-select"
+          <Form
+            form={form}
+            onFinish={handleSubmit}
+            className="rel-form"
+            layout="vertical"
+            initialValues={{
+              userSelect: '',
+              projectSelect: '',
+            }}
+          >
+            <Form.Item
+              label={<h3>Usuarios :</h3>}
+              name="userSelect"
+              rules={[{ required: true, message: 'Seleccione un usuario' }]}
+              className="form-labels"
+            >
+              <Select
+                placeholder="Seleccionar usuario"
                 value={selectedUser}
-                onChange={(e) => setSelectedUser(e.target.value)}
-                className="input-field"
-                aria-required="true"
+                onChange={(value) => setSelectedUser(value)}
+                style={{ width: '98%' }}
               >
-                <option value="">Seleccionar usuario</option>
                 {users.map((user) => (
-                  <option key={user.id} value={user.id}>
+                  <Option key={user.id} value={user.id}>
                     {user.name}
-                  </option>
+                  </Option>
                 ))}
-              </select>
-            </label>
+              </Select>
+            </Form.Item>
 
-            <br />
-
-            <label className='form-labels' htmlFor="project-select">
-              <h3>Proyectos:</h3>
-              <select
-                id="project-select"
+            <Form.Item
+              label={<h3>Proyectos:</h3>}
+              name="projectSelect"
+              rules={[{ required: true, message: 'Seleccione un proyecto' }]}
+              className="form-labels"
+            >
+              <Select
+                placeholder="Seleccionar proyecto"
                 value={selectedProject}
-                onChange={(e) => setSelectedProject(e.target.value)}
-                className="input-field"
-                aria-required="true"
+                onChange={(value) => setSelectedProject(value)}
+                style={{ width: '98%' }}
               >
-                <option value="">Seleccionar proyecto</option>
                 {projects.map((project) => (
-                  <option key={project.id} value={project.id}>
+                  <Option key={project.id} value={project.id}>
                     {project.Season}
-                  </option>
+                  </Option>
                 ))}
-              </select>
-            </label>
+              </Select>
+            </Form.Item>
 
-            <br />
-
-            <button type="submit" className="login-btn">
-              Crear Relación
-            </button>
-          </form>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-btn">
+                Crear Relación
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
 
-        <div className='showUserProjects' aria-live="polite" aria-atomic="true" role="status">
+        <div className="showUserProjects" aria-live="polite" aria-atomic="true" role="status">
           <h3>Proyectos de Usuario:</h3>
           {error && <p role="alert" style={{ color: 'red' }}>{error}</p>}
           <ul>
             {userProjects.map((userProject) => (
               <li key={userProject.id}>
                 <strong>Usuario:</strong> {userProject.name} <strong>Proyecto:</strong> {userProject.Season}
-                <button onClick={() => deleteUserProject(userProject.id)}>Eliminar</button>
+                <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
+                  Eliminar
+                </Button>
               </li>
             ))}
           </ul>
