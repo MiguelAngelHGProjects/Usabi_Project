@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   has_one_attached :projectImage
-  has_many :user_projects
+  has_many :user_projects, dependent: :destroy
   has_many :users, through: :user_projects
 
   validates :PlaylistId, :Season, :ProjectNote, :Projectrevision, presence: true

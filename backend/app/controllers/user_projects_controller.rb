@@ -25,15 +25,11 @@ class UserProjectsController < ApplicationController
   # POST /user_projects or /user_projects.json
   def create
     @user_project = UserProject.new(user_project_params)
-
-    respond_to do |format|
-      if @user_project.save
-        format.html { redirect_to user_project_url(@user_project), notice: 'User project was successfully created.' }
-        format.json { render :show, status: :created, location: @user_project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_project.errors, status: :unprocessable_entity }
-      end
+  
+    if @user_project.save
+      render json: @user_project, status: :created
+    else
+      render json: @user_project.errors, status: :unprocessable_entity
     end
   end
 
@@ -52,11 +48,10 @@ class UserProjectsController < ApplicationController
 
   # DELETE /user_projects/1 or /user_projects/1.json
   def destroy
-    @user_project.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_projects_url, notice: 'User project was successfully destroyed.' }
-      format.json { head :no_content }
+    if @user_project.destroy
+      render json: { message: 'UserProject deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete UserProject' }, status: :unprocessable_entity
     end
   end
 
