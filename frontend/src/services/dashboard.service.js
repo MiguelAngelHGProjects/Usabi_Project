@@ -52,12 +52,19 @@ const dashboardService = {
   
   logout: async () => {
     try {
-      const response = await axios.delete(`${backendUrl}/logout`);
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(`${backendUrl}/logout`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.removeItem('token');
       return response.data;
     } catch (error) {
       throw error;
     }
   },
+  
 };
 
 export default dashboardService;

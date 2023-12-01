@@ -1,44 +1,49 @@
 .header-container {
-    background-color: #004D4D;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 106px;
-    border-radius: 0 0 27px 27px;
-    top: 0;
-    position: fixed;
-    z-index: 1000;
-  }
-  
-  .header-container h1 {
-    margin-left: 60px;
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
-    top: 20px;
-  }
-  
-.searchIcon {
-    margin-top: 20px;
-    width: 45px;
-    height: 40px;
-    margin-right: 10px;
+  background-color: #004D4D;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 106px;
+  border-radius: 0 0 27px 27px;
+  top: 0;
+  position: fixed;
+  z-index: 1000;
 }
 
-  .icons-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    left: 39px;
-    top: 24px;
-  }
-  
-  .icons-container img {
-    width: 45px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
+.menu-button {
+  width: 30%;
+  border: none;
+  background-color: transparent;
+}
+
+.header-container h1 {
+  margin-left: 60px;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  top: 20px;
+}
+
+.searchIcon {
+  margin-top: 20px;
+  width: 45px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.icons-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 39px;
+  top: 24px;
+}
+
+.icons-container img {
+  width: 45px;
+  height: 40px;
+  margin-right: 10px;
+}

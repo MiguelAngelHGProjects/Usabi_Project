@@ -96,3 +96,7 @@
     flex-direction: column;
     width: 100%;
   }
+
+  .form-btn {
+    width: 100%;
+  }

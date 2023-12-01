@@ -8,10 +8,9 @@ import './style.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import dashboardService from '../services/dashboard.service';
-
 const { RangePicker } = DatePicker;
 
-const Dashboard = ({ handleLogout }) => {
+const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [projects, setProjects] = useState([]);
   const [open, setOpen] = useState(false);
@@ -23,7 +22,6 @@ const Dashboard = ({ handleLogout }) => {
       try {
         const userDetails = await dashboardService.getUserDetails();
         setUser(userDetails);
-
         if (userDetails.data.user_type === 'admin') {
           const projectsData = await projectsService.getProjects();
           setProjects(projectsData);
@@ -50,37 +48,34 @@ const Dashboard = ({ handleLogout }) => {
   const handleOk = async () => {
     try {
       const values = await form.validateFields();
-  
-      // Validar que dateRange tenga fechas seleccionadas
+
       if (!values.dateRange || values.dateRange.length !== 2) {
         throw new Error('Por favor, selecciona un rango de fechas válido.');
       }
-  
+
       const formData = new FormData();
       formData.append('project[PlaylistId]', values.PlaylistId);
       formData.append('project[Season]', values.Season);
       formData.append('project[ProjectNote]', values.ProjectNote);
       formData.append('project[Projectrevision]', values.Projectrevision);
-  
-      // Modificar la construcción del rango de fechas
+
       formData.append(
         'project[projectDateRange]',
         values.dateRange.map(date => date.format('YYYY-MM-DD')).join(' to ')
       );
-  
-      // Añadir la imagen del proyecto al formData si hay un archivo seleccionado
+
       if (values.projectImage.fileList && values.projectImage.fileList.length > 0) {
         const file = values.projectImage.fileList[0].originFileObj;
         formData.append('project[projectImage]', file);
       }
-  
+
       await projectsService.createProject(formData);
-  
+
       form.resetFields();
       setOpen(false);
       setImageLoading(false);
       message.success('Proyecto creado exitosamente');
-  
+
       const updatedProjects = await projectsService.getProjects();
       setProjects(updatedProjects);
     } catch (error) {
@@ -88,7 +83,7 @@ const Dashboard = ({ handleLogout }) => {
       setImageLoading(false);
     }
   };
-  
+
   const handleCancel = () => {
     form.resetFields();
     setOpen(false);
@@ -104,14 +99,6 @@ const Dashboard = ({ handleLogout }) => {
     }
   };
 
-  const logout = async () => {
-    try {
-      await dashboardService.logout();
-      handleLogout();
-    } catch (error) {
-      console.error('Logout error in Dashboard:', error);
-    }
-  };
 
   const uploadProps = {
     beforeUpload: (file) => {
@@ -134,14 +121,11 @@ const Dashboard = ({ handleLogout }) => {
   return (
     <div className="dashboard-container">
       <div>
-        <Header title="Projects" />
+      <Header title="Projects"/>
       </div>
       <div className="primary-container">
         {user && (
           <>
-            <Button type="primary" onClick={logout}>
-              Cerrar sesión
-            </Button>
             <Button type="primary" onClick={showModal} style={{ marginLeft: '16px' }} disabled={imageLoading}>
               Crear Proyecto
             </Button>

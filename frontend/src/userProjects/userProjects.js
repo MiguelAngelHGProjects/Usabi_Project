@@ -186,8 +186,8 @@ const UserProjectForm = () => {
               </Select>
             </Form.Item>
 
-            <Form.Item>
-              <Button type="primary" htmlType="submit" className="login-btn">
+            <Form.Item className='form-btn'>
+              <Button type="primary" htmlType="submit" className="form-btn">
                 Crear Relación
               </Button>
             </Form.Item>
