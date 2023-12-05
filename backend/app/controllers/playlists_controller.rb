@@ -1,13 +1,15 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: %i[ show edit update destroy ]
+  before_action :set_playlist, only: %i[show edit update destroy]
 
   # GET /playlists or /playlists.json
   def index
     @playlists = Playlist.all
+    render json: @playlists
   end
 
   # GET /playlists/1 or /playlists/1.json
   def show
+    render json: playlist_response_data(@playlist)
   end
 
   # GET /playlists/new
@@ -23,48 +25,48 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
 
-    respond_to do |format|
-      if @playlist.save
-        format.html { redirect_to playlist_url(@playlist), notice: "Playlist was successfully created." }
-        format.json { render :show, status: :created, location: @playlist }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
-      end
+    if @playlist.save
+      render json: playlist_response_data(@playlist), status: :created, location: playlist_url(@playlist)
+    else
+      render json: { error: 'Failed to create playlist', details: @playlist.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /playlists/1 or /playlists/1.json
   def update
-    respond_to do |format|
-      if @playlist.update(playlist_params)
-        format.html { redirect_to playlist_url(@playlist), notice: "Playlist was successfully updated." }
-        format.json { render :show, status: :ok, location: @playlist }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
-      end
+    if @playlist.update(playlist_params)
+      render json: playlist_response_data(@playlist), status: :ok, location: playlist_url(@playlist)
+    else
+      render json: { error: 'Failed to update playlist', details: @playlist.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   # DELETE /playlists/1 or /playlists/1.json
   def destroy
-    @playlist.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to playlists_url, notice: "Playlist was successfully destroyed." }
-      format.json { head :no_content }
+    if @playlist.destroy
+      render json: { message: 'Playlist deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete playlist', details: @playlist.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_playlist
-      @playlist = Playlist.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def playlist_params
-      params.require(:playlist).permit(:PlaylistOrder, :ProjectId, :WorkAutor, :WorkName, :WorkDuration, :PlaylistString)
-    end
+  def playlist_response_data(playlist)
+    {
+      id: playlist.id,
+      PlaylistOrder: playlist.PlaylistOrder,
+      WorkAutor: playlist.WorkAutor,
+      WorkName: playlist.WorkName,
+      WorkDuration: playlist.WorkDuration,
+    }
+  end
+
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
+  end
+
+  def playlist_params
+    params.require(:playlist).permit(:PlaylistOrder, :WorkAutor, :WorkName, :WorkDuration)
+  end
 end

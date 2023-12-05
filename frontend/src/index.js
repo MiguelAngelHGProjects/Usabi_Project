@@ -8,6 +8,7 @@ import Register from "./Pages/register/Register";
 import AssingProjects from "./Pages/userProjects/userProjects";
 import Userconf from "./Pages/userConf/userConf";
 import reportWebVitals from './reportWebVitals';
+import PlayList from './Pages/Playlists/playList';
 
 const RootComponent = () => (
   <React.StrictMode>
@@ -17,6 +18,7 @@ const RootComponent = () => (
       <Route path="/register" element={<Register />} />
       <Route path="/AssingProjects" element={<AssingProjects />} />
       <Route path="/Settings" element={<Userconf />} />
+      <Route path="/PlayLists" element={<PlayList />} />
     </Routes>
   </React.StrictMode>
 );

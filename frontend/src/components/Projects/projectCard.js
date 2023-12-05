@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
-import { Card, Button, Spin, Modal, Form, Input, DatePicker } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Card, Button, Spin, Modal, Form, Input, DatePicker, Select } from 'antd';
 import { format } from 'date-fns';
 import './style.css';
+import playlistService from '../../services/playlist.service';
 
 const ProjectCard = ({ project, onDelete, onUpdate }) => {
   const [imageLoading, setImageLoading] = useState(true);
   const [updateModalVisible, setUpdateModalVisible] = useState(false);
   const [updateForm] = Form.useForm();
+  const [playlists, setPlaylists] = useState([]);
+  const { Option } = Select;
+
+  useEffect(() => {
+    const fetchPlaylists = async () => {
+      try {
+        const playlistsData = await playlistService.getAllPlaylists();
+        setPlaylists(playlistsData);
+      } catch (error) {
+        console.error('Error fetching playlists:', error);
+      }
+    };
+
+    fetchPlaylists();
+  }, []);
 
   const showUpdateModal = () => {
     setUpdateModalVisible(true);
@@ -15,7 +31,6 @@ const ProjectCard = ({ project, onDelete, onUpdate }) => {
       Season: project.Season,
       ProjectNote: project.ProjectNote,
       Projectrevision: project.Projectrevision,
-      
     });
   };
 
@@ -73,52 +88,59 @@ const ProjectCard = ({ project, onDelete, onUpdate }) => {
         </Button>
         <Button type="primary" onClick={showUpdateModal} className="update-button">
           Actualizar Proyecto
-        </Button> 
+        </Button>
       </div>
       <Modal
-  title="Actualizar Proyecto"
-  visible={updateModalVisible}
-  onOk={handleUpdate}
-  onCancel={handleUpdateCancel}
->
-  <Form form={updateForm} name="updateProjectForm">
-    <Form.Item
-      name="PlaylistId"
-      label="Playlist ID"
-      rules={[{ required: true, message: 'Por favor, ingresa el ID de la Playlist' }]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      name="Season"
-      label="Season"
-      rules={[{ required: true, message: 'Por favor, ingresa la temporada' }]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      name="ProjectNote"
-      label="Project Note"
-      rules={[{ required: true, message: 'Por favor, ingresa la nota del proyecto' }]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      name="Projectrevision"
-      label="Revisión del Proyecto"
-      rules={[{ required: true, message: 'Por favor, ingresa la revisión del proyecto' }]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      name="dateRange"
-      label="Date Range"
-      rules={[{ required: true, message: 'Por favor, selecciona el rango de fechas' }]}
-    >
-      <DatePicker.RangePicker />
-    </Form.Item>
-  </Form>
-</Modal>
+        title="Actualizar Proyecto"
+        visible={updateModalVisible}
+        onOk={handleUpdate}
+        onCancel={handleUpdateCancel}
+      >
+        <Form form={updateForm} name="updateProjectForm">
+          <Form.Item
+            name="PlaylistId"
+            label="Playlist ID"
+            rules={[{ required: true, message: 'Por favor, selecciona una Playlist' }]}
+          >
+            <Select placeholder="Selecciona una Playlist">
+              {playlists.map(playlist => (
+                <Option key={playlist.id} value={playlist.id}>
+                  {playlist.WorkName}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+
+          <Form.Item
+            name="Season"
+            label="Season"
+            rules={[{ required: true, message: 'Por favor, ingresa la temporada' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="ProjectNote"
+            label="Project Note"
+            rules={[{ required: true, message: 'Por favor, ingresa la nota del proyecto' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Projectrevision"
+            label="Revisión del Proyecto"
+            rules={[{ required: true, message: 'Por favor, ingresa la revisión del proyecto' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="dateRange"
+            label="Date Range"
+            rules={[{ required: true, message: 'Por favor, selecciona el rango de fechas' }]}
+          >
+            <DatePicker.RangePicker />
+          </Form.Item>
+        </Form>
+      </Modal>
     </Card>
   );
 };

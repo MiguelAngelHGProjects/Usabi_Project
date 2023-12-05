@@ -2,16 +2,12 @@
 
 one:
   PlaylistOrder: MyString
-  ProjectId: MyString
   WorkAutor: MyString
   WorkName: MyString
   WorkDuration: MyString
-  PlaylistString: MyString
 
 two:
   PlaylistOrder: MyString
-  ProjectId: MyString
   WorkAutor: MyString
   WorkName: MyString
   WorkDuration: MyString
-  PlaylistString: MyString

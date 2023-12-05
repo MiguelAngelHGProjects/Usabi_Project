@@ -41,6 +41,9 @@ const Menu = () => {
       <AntdMenu.Item key="assing-projects">
         <Link to="/AssingProjects">Asignar Proyectos</Link>
       </AntdMenu.Item>
+      <AntdMenu.Item key="PlayLists">
+        <Link to="/PlayLists">PlayLists</Link>
+      </AntdMenu.Item>
       <AntdMenu.Item key="logout">
         <Button type="link" onClick={handleLogout}>
           Cerrar Sesión
