@@ -1,9 +1,37 @@
 import React, { useState } from 'react';
-import { Card, Button, Spin } from 'antd';
+import { Card, Button, Spin, Modal, Form, Input, DatePicker } from 'antd';
 import { format } from 'date-fns';
 import './style.css';
-const ProjectCard = ({ project, onDelete }) => {
+
+const ProjectCard = ({ project, onDelete, onUpdate }) => {
   const [imageLoading, setImageLoading] = useState(true);
+  const [updateModalVisible, setUpdateModalVisible] = useState(false);
+  const [updateForm] = Form.useForm();
+
+  const showUpdateModal = () => {
+    setUpdateModalVisible(true);
+    updateForm.setFieldsValue({
+      PlaylistId: project.PlaylistId,
+      Season: project.Season,
+      ProjectNote: project.ProjectNote,
+      Projectrevision: project.Projectrevision,
+      
+    });
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const values = await updateForm.validateFields();
+      onUpdate(values);
+      setUpdateModalVisible(false);
+    } catch (error) {
+      console.error('Error updating project:', error);
+    }
+  };
+
+  const handleUpdateCancel = () => {
+    setUpdateModalVisible(false);
+  };
 
   if (!project) {
     return <p>Error: No project data available</p>;
@@ -36,13 +64,63 @@ const ProjectCard = ({ project, onDelete }) => {
         <p>No hay imagen disponible</p>
       )}
       <p>{project.ProjectNote}</p>
-      <p>{startDate} - {endDate}</p>
-      <Button className="delete-button" onClick={onDelete} style={{ marginTop: '8px' }}>
-        Borrar Proyecto
-      </Button>
+      <p>
+        {startDate} - {endDate}
+      </p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px' }}>
+        <Button className="delete-button" onClick={onDelete}>
+          Borrar Proyecto
+        </Button>
+        <Button type="primary" onClick={showUpdateModal} className="update-button">
+          Actualizar Proyecto
+        </Button> 
+      </div>
+      <Modal
+  title="Actualizar Proyecto"
+  visible={updateModalVisible}
+  onOk={handleUpdate}
+  onCancel={handleUpdateCancel}
+>
+  <Form form={updateForm} name="updateProjectForm">
+    <Form.Item
+      name="PlaylistId"
+      label="Playlist ID"
+      rules={[{ required: true, message: 'Por favor, ingresa el ID de la Playlist' }]}
+    >
+      <Input />
+    </Form.Item>
+    <Form.Item
+      name="Season"
+      label="Season"
+      rules={[{ required: true, message: 'Por favor, ingresa la temporada' }]}
+    >
+      <Input />
+    </Form.Item>
+    <Form.Item
+      name="ProjectNote"
+      label="Project Note"
+      rules={[{ required: true, message: 'Por favor, ingresa la nota del proyecto' }]}
+    >
+      <Input />
+    </Form.Item>
+    <Form.Item
+      name="Projectrevision"
+      label="Revisión del Proyecto"
+      rules={[{ required: true, message: 'Por favor, ingresa la revisión del proyecto' }]}
+    >
+      <Input />
+    </Form.Item>
+    <Form.Item
+      name="dateRange"
+      label="Date Range"
+      rules={[{ required: true, message: 'Por favor, selecciona el rango de fechas' }]}
+    >
+      <DatePicker.RangePicker />
+    </Form.Item>
+  </Form>
+</Modal>
     </Card>
   );
 };
 
 export default ProjectCard;
-

@@ -36,18 +36,16 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        purge_project_image_if_needed
-        attach_project_image
-        format.html { redirect_to project_url(@project), notice: 'Project was successfully updated.' }
-        format.json { render json: project_response_data(@project), status: :ok, location: @project }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    Rails.logger.debug "Params received: #{params.inspect}"
+  
+    if @project.update(project_params)
+      purge_project_image_if_needed
+      attach_project_image
+      render json: project_response_data(@project), status: :ok, location: @project
+    else
+      render json: @project.errors, status: :unprocessable_entity
     end
-  end
+  end 
 
   # DELETE /projects/1 or /projects/1.json
   def destroy

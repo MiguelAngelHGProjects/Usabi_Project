@@ -9,3 +9,15 @@
     background-color: darkred;
     border-color: darkred;
   }
+
+  .update-button {
+    margin: 3%;
+    background-color: orange;
+    border-color: orange;
+    color: white;
+  }
+
+  .update-button:hover {
+    background-color: darkorange;
+    border-color: darkorange;
+  }
