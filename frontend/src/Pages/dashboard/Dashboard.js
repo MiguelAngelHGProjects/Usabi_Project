@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Modal, Form, Input, DatePicker, Upload, message, notification } from 'antd';
+import { Button, Modal, Form, Input, DatePicker, Upload, message, notification, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import ProjectCard from '../../components/Projects/projectCard';
 import projectsService from '../../services/projects.service';
+import playlistService from '../../services/playlist.service';
 import './style.css';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import dashboardService from '../../services/dashboard.service';
+
 const { RangePicker } = DatePicker;
 
 const Dashboard = () => {
@@ -16,15 +18,21 @@ const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [form] = Form.useForm();
   const [imageLoading, setImageLoading] = useState(false);
+  const [playlists, setPlaylists] = useState([]);
+  const { Option } = Select;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userDetails = await dashboardService.getUserDetails();
         setUser(userDetails);
+
         if (userDetails.data.user_type === 'admin') {
           const projectsData = await projectsService.getProjects();
+          const playlistsData = await playlistService.getAllPlaylists();
+
           setProjects(projectsData);
+          setPlaylists(playlistsData);
         } else {
           console.log('Este usuario no es un administrador. Puedes personalizar la lógica aquí.');
         }
@@ -34,6 +42,7 @@ const Dashboard = () => {
     };
 
     const token = localStorage.getItem('token');
+
     if (token) {
       fetchData();
     } else {
@@ -54,7 +63,8 @@ const Dashboard = () => {
       }
 
       const formData = new FormData();
-      formData.append('project[PlaylistId]', values.PlaylistId);
+
+      formData.append('project[playlist_id]', values.PlaylistId);
       formData.append('project[Season]', values.Season);
       formData.append('project[ProjectNote]', values.ProjectNote);
       formData.append('project[Projectrevision]', values.Projectrevision);
@@ -90,10 +100,10 @@ const Dashboard = () => {
     setImageLoading(false);
   };
 
-  const handleDelete = async (projectId) => {
+  const handleDelete = async projectId => {
     try {
       await projectsService.deleteProject(projectId);
-      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
+      setProjects(prevProjects => prevProjects.filter(project => project.id !== projectId));
     } catch (error) {
       console.error('Error deleting project:', error);
     }
@@ -101,18 +111,20 @@ const Dashboard = () => {
 
   const updateProject = async (projectId, projectData) => {
     try {
-      await projectsService.updateProject(projectId, projectData);
+      await projectsService.updateProject(projectId, { ...projectData, playlist_id: projectData.PlaylistId });
       notification.success({
         message: 'Proyecto actualizado',
-        description: 'El proyecto se ha actualizado correctamente.',
+        description: 'El proyecto se ha actualizado correctamente.'
       });
+
       const updatedProjects = await projectsService.getProjects();
       setProjects(updatedProjects);
     } catch (error) {
       notification.error({
         message: 'Error al actualizar el proyecto',
-        description: 'Hubo un error al intentar actualizar el proyecto.',
+        description: 'Hubo un error al intentar actualizar el proyecto.'
       });
+
       console.error(`Error updating project with ID ${projectId}:`, error);
     }
   };
@@ -126,21 +138,21 @@ const Dashboard = () => {
   };
 
   const uploadProps = {
-    beforeUpload: (file) => {
+    beforeUpload: file => {
       form.setFieldsValue({ projectImage: file });
       setImageLoading(true);
       return false;
     },
-    onChange: (info) => {
+    onChange: info => {
       if (info.file.status === 'done' || info.file.status === 'error') {
         setImageLoading(false);
       }
     },
-    onError: (error) => {
+    onError: error => {
       console.error('Error uploading image:', error);
       setImageLoading(false);
       message.error('Error al cargar la imagen del proyecto');
-    },
+    }
   };
 
   return (
@@ -157,16 +169,14 @@ const Dashboard = () => {
             {projects.length === 0 ? (
               <p>No hay proyectos disponibles.</p>
             ) : (
-              projects.map((project) => {
-                return (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    onDelete={() => handleDelete(project.id)}
-                    onUpdate={(updatedData) => handleUpdate(project.id, updatedData)}
-                  />
-                );
-              })
+              projects.map(project => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onDelete={() => handleDelete(project.id)}
+                  onUpdate={updatedData => handleUpdate(project.id, updatedData)}
+                />
+              ))
             )}
 
             <Modal title="Crear Nuevo Proyecto" visible={open} onOk={handleOk} onCancel={handleCancel}>
@@ -183,10 +193,17 @@ const Dashboard = () => {
                 <Form.Item
                   name="PlaylistId"
                   label="Playlist ID"
-                  rules={[{ required: true, message: 'Por favor, ingresa el ID de la Playlist' }]}
+                  rules={[{ required: true, message: 'Por favor, selecciona una Playlist' }]}
                 >
-                  <Input />
+                  <Select placeholder="Selecciona una Playlist">
+                    {playlists.map(playlist => (
+                      <Option key={playlist.id} value={playlist.id}>
+                        {playlist.WorkName}
+                      </Option>
+                    ))}
+                  </Select>
                 </Form.Item>
+
                 <Form.Item
                   name="Season"
                   label="Season"

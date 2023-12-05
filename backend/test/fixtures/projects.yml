@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  PlaylistId: MyString
+  playlist_id: MyString
   Season: MyString
   ProjectNote: MyString
   ProjectDateIni: MyString
@@ -9,7 +9,7 @@ one:
   Projectevision: MyString
 
 two:
-  PlaylistId: MyString
+  playlist_id: MyString
   Season: MyString
   ProjectNote: MyString
   ProjectDateIni: MyString

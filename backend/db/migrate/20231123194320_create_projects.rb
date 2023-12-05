@@ -1,7 +1,7 @@
   class CreateProjects < ActiveRecord::Migration[7.1]
     def change
       create_table :projects do |t|
-        t.integer :PlaylistId
+        t.references :playlist, foreign_key: true
         t.string :Season
         t.string :ProjectNote
         t.text :projectDateRange
