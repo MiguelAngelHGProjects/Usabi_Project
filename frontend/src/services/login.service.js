@@ -22,10 +22,8 @@ const loginService = {
     } catch (error) {
       console.error('Login error:', error);
       if (error.response && error.response.status === 401) {
-        // Puedes lanzar un error personalizado o devolver un código de error específico.
         throw new Error('Invalid credentials');
       } else {
-        // Otros casos de error
         throw error;
       }
     }

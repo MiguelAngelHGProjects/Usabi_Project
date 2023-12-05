@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Spin } from 'antd';
 import { format } from 'date-fns';
-
+import './style.css';
 const ProjectCard = ({ project, onDelete }) => {
   const [imageLoading, setImageLoading] = useState(true);
 
@@ -37,7 +37,7 @@ const ProjectCard = ({ project, onDelete }) => {
       )}
       <p>{project.ProjectNote}</p>
       <p>{startDate} - {endDate}</p>
-      <Button type="danger" onClick={onDelete} style={{ marginTop: '8px' }}>
+      <Button className="delete-button" onClick={onDelete} style={{ marginTop: '8px' }}>
         Borrar Proyecto
       </Button>
     </Card>

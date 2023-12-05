@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
-import Login from "./login/Login";
-import Dashboard from "./dashboard/Dashboard";
-import Register from "./register/Register";
-import AssingProjects from "./userProjects/userProjects";
+import Login from "./Pages/login/Login";
+import Dashboard from "./Pages/dashboard/Dashboard";
+import Register from "./Pages/register/Register";
+import AssingProjects from "./Pages/userProjects/userProjects";
+import Userconf from "./Pages/userConf/userConf";
 import reportWebVitals from './reportWebVitals';
 
 const RootComponent = () => (
@@ -15,6 +16,7 @@ const RootComponent = () => (
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/AssingProjects" element={<AssingProjects />} />
+      <Route path="/Settings" element={<Userconf />} />
     </Routes>
   </React.StrictMode>
 );

@@ -16,6 +16,10 @@
   background-color: transparent;
 }
 
+.search-container {
+  z-index: 1000;
+}
+
 .header-container h1 {
   margin-left: 60px;
   color: white;

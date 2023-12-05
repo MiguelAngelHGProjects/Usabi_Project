@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Select, Button, Form, message } from 'antd';
-import userProjectsService from '../services/user_projects.service';
-import dashboardService from '../services/dashboard.service';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import userProjectsService from '../../services/user_projects.service';
+import dashboardService from '../../services/dashboard.service';
+import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 import './style.css';
 
 const { Option } = Select;

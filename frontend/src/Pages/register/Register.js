@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import registerService from '../services/register.service';
+import registerService from '../../services/register.service';
 import "./style.css";
-import Header from '../components/header/header';
+import Header from '../../components/header/header';
 
 function Register() {
   const [name, setName] = useState('');
@@ -52,7 +52,7 @@ function Register() {
     <div className="registration-container">
       <header className="registration-header">
         <div className='log-header'>
-          <Header title="Registro" />
+          <Header title="Registrarse" />
         </div>
       </header>
       <form encType="multipart/form-data" className="registration-form">

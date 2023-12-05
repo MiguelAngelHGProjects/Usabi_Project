@@ -3,6 +3,7 @@ import axios from 'axios';
 const backendUrl = 'http://localhost:4000';
 
 const projectsService = {
+  
   getProjects: async () => {
     try {
       const response = await axios.get(`${backendUrl}/projects`);
@@ -58,6 +59,8 @@ const projectsService = {
       throw error;
     }
   },
+
+  
 };
 
 export default projectsService;

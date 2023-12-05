@@ -6,16 +6,25 @@ import './style.css';
 import Menu from '../Menu/menu';
 
 const Header = ({ title }) => {
+
+
   return (
-    <div className='header-container'>      
+    <div className='header-container'>
       <div className='icons-container'>
-        <Dropdown overlay={<Menu /> } trigger={['click']} className="menu-overlay">
-          <Button icon={<img src={iconMenu} alt="Menu Icon" />} className="menu-button">
+        <Dropdown overlay={<Menu />} trigger={['click']} className="menu-overlay">
+          <Button icon={<img src={iconMenu} alt="Menu Icon" />} className="menu-button" type="primary">
           </Button>
         </Dropdown>
       </div>
       <h1>{title}</h1>
-      <Button className='searchIcon' icon={<img src={iconSearch} alt="Search Icon" />} style={{ background: 'transparent', border: 'none' }} />
+      <div className="search-container">
+        <Button
+          className='searchIcon'
+          icon={<img src={iconSearch} alt="Search Icon" />}
+          style={{ background: 'transparent', border: 'none' }}
+          type="primary"
+        />
+      </div>
     </div>
   );
 };

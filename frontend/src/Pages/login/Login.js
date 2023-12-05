@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import loginService from '../services/login.service';
+import loginService from '../../services/login.service';
 import { Link } from 'react-router-dom';
-import Header from '../components/header/header';
+import Header from '../../components/header/header';
 import Dashboard from '../dashboard/Dashboard';
 import './style.css';
 
@@ -81,8 +81,6 @@ function Login() {
       setIsLoggedIn(false);
       setUser(null);
       localStorage.removeItem('token');
-      // console.log('Logout successful. Token removed from localStorage.');
-      // console.log('Token after logout:', localStorage.getItem('token'));
     } catch (error) {
       console.error('Error during logout:', error);
     }
@@ -95,7 +93,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="log-header">
-        <Header title="Login" />
+        <Header title="Iniciar sesión" />
       </div>
       <div className="login-form">
         <label>Email</label>

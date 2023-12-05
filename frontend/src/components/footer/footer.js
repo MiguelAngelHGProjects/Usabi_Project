@@ -11,7 +11,9 @@ const Footer = ({ image }) => {
       </div>
       <Button className='configIcon' icon={<img src={calIcon} alt="Calendar Icon" />} style={{ background: 'transparent', border: 'none' }} />
       {image ? (
+        <a href='/Settings'>
         <img src={image} alt="User Icon" className="user-icon" />
+        </a>
       ) : (
         <span>Imagen no disponible</span>
       )}
