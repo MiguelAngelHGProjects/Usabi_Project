@@ -1,7 +1,7 @@
 class CreateSchedules < ActiveRecord::Migration[7.1]
   def change
     create_table :schedules do |t|
-      t.integer :ProjectId
+      t.references :project, foreign_key: true
       t.string :Room
       t.string :ScheduleType
       t.string :ScheduleName
