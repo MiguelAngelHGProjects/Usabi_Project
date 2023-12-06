@@ -3,7 +3,8 @@ class Project < ApplicationRecord
   has_many :user_projects, dependent: :destroy
   has_many :users, through: :user_projects
   belongs_to :playlist
-  
+  has_many :schedule
+
   validates :playlist_id, presence: true
 
   validates :Season, :ProjectNote, :Projectrevision, presence: true
