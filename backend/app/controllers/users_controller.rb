@@ -45,13 +45,43 @@ class UsersController < ApplicationController
     end
   end
   
-
   def destroy
     user = User.find(params[:id])
     user.destroy
     head :no_content
   end
-
+  
+  def change_password
+    set_user
+  
+    if @user.valid_password?(params[:current_password])
+      if @user.update(password: params[:new_password], password_confirmation: params[:password_confirmation])
+        render json: {
+          status: { code: 200, message: 'Password changed successfully.' },
+          data: UserSerializer.new(@user).as_json
+        }, status: :ok
+      else
+        render json: {
+          status: 422,
+          error: "Unprocessable Entity",
+          message: @user.errors.full_messages.join(', ')
+        }, status: :unprocessable_entity
+      end
+    else
+      render json: {
+        status: 401,
+        error: "Unauthorized",
+        message: 'Current password is incorrect.'
+      }, status: :unauthorized
+    end
+  end  
+  
+  private
+  
+  def password_params
+    params.permit(:new_password, :password_confirmation)
+  end
+  
   private
 
   def set_user
