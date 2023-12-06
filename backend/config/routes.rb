@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   # Current user route
   get '/current_user', to: 'current_user#index'
 
-  # Users resource routes
-  resources :users, only: [:index, :show, :destroy]
-  resources :user_projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :destroy] do
+    member do
+      put 'change_password'
+    end    
+  end
+  resources :user_projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]  
 end
