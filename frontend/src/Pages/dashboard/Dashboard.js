@@ -161,7 +161,7 @@ const Dashboard = () => {
         <Header title="Proyectos" />
       </div>
       <div className="primary-container">
-        {user && (
+        {user && user.data.user_type === 'admin' && (
           <>
             <Button type="primary" onClick={showModal} style={{ marginLeft: '16px' }} disabled={imageLoading}>
               Crear Proyecto

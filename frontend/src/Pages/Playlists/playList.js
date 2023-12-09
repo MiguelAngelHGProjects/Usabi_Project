@@ -101,9 +101,11 @@ const PlaylistComponent = () => {
         <Header title="Playlists" />
       </div>
       <div className='playlist-container'>
-        <Button type="primary" onClick={handleNewPlaylist} className='add-button'>
-          New Playlist
-        </Button>
+        {user && user.data.user_type === 'admin' && (
+          <Button type="primary" onClick={handleNewPlaylist} className='add-button'>
+            New Playlist
+          </Button>
+        )}
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {loading ? (
             <p>Loading...</p>
@@ -114,12 +116,16 @@ const PlaylistComponent = () => {
                 key={playlist.id}
                 style={{ width: 300, margin: 16 }}
                 actions={[
-                  <Button key="edit" onClick={() => handleEditPlaylist(playlist.id)} className='update-button'>
-                    Edit
-                  </Button>,
-                  <Button key="delete" onClick={() => handleDeletePlaylist(playlist.id)} className='delete-button'>
-                    Delete
-                  </Button>,
+                  user && user.data.user_type === 'admin' && (
+                    <Button key="edit" onClick={() => handleEditPlaylist(playlist.id)} className='update-button'>
+                      Edit
+                    </Button>
+                  ),
+                  user && user.data.user_type === 'admin' && (
+                    <Button key="delete" onClick={() => handleDeletePlaylist(playlist.id)} className='delete-button'>
+                      Delete
+                    </Button>
+                  ),
                 ]}
               >
                 <div>
