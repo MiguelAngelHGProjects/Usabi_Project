@@ -187,9 +187,11 @@ const UserProjectForm = () => {
             </Form.Item>
 
             <Form.Item className='form-btn'>
-              <Button type="primary" htmlType="submit" className="form-btn">
-                Crear Relación
-              </Button>
+              {user && user.data.user_type === 'admin' && (
+                <Button type="primary" htmlType="submit" className="form-btn">
+                  Crear Relación
+                </Button>
+              )}
             </Form.Item>
           </Form>
         </div>
@@ -201,9 +203,11 @@ const UserProjectForm = () => {
             {userProjects.map((userProject) => (
               <li key={userProject.id}>
                 <strong>Usuario:</strong> {userProject.name} {userProject.lastname} <strong>Proyecto:</strong> {userProject.Season}
-                <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
-                  Eliminar
-                </Button>
+                {user && user.data.user_type === 'admin' && (
+                  <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
+                    Eliminar
+                  </Button>
+                )}
               </li>
             ))}
           </ul>
