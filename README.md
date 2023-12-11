@@ -8,6 +8,7 @@ OrquestaApp is an application designed to assist orchestra musicians in staying 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Configuration](#configuration)
 - [Contributing](#contributing)
 - [Postman Documentation](#postman-documentation)
 - [Models](#models)
@@ -32,6 +33,13 @@ Start the backend server: rails server
 Start the frontend development server: npm start (or yarn start)
 Open your browser and visit http://localhost:3000
 
+## Configuration
+
+Configure your PostgreSQL database:
+
+- Open your `config/aplication.yml` file
+- Update the `username`, `password`, and `database` values with your own PostgreSQL credentials
+
 ## Contributing
 
 Contributions are welcome! If you want to contribute to the project, follow these steps:
@@ -42,8 +50,9 @@ Make your changes and commit: git commit -m 'Add new feature'
 Push to your branch: git push origin feature/new-feature
 Open a Pull Request on GitHub.
 
-## Postman Documentation
-
-
-
 ## Models 
+![EntityModel](imagesModels/EntityModel.png)
+![ClassDiagram](imagesModels/ClassDiagram.png)
+![UserCases](imagesModels/UserCases.png)
+
+## Postman Documentation
