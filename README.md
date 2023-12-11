@@ -17,13 +17,13 @@ OrquestaApp is an application designed to assist orchestra musicians in staying 
 OrquestaApp consists of a Ruby on Rails backend and a React frontend. This README provides information on how to set up the development environment, install dependencies, and contribute to the project.
 
 ## Prerequisites
-Ruby on Rails: [Specify version]
-Node.js and npm (or Yarn): [Specify versions]
-PostgreSQL: [Specify version]
+Ruby on Rails: Rails 7.1.2 /Ruby 3.0.0
+Node.js and npm (or Yarn): Last version
+PostgreSQL: Last version
 
 ## Installation
 Clone this repository: git clone: https://github.com/MiguelAngelHGProjects/Usabi_Project.git
-Navigate to the project directory: cd OrquestaApp
+Navigate to the project directory: cd Usabi_Project
 Install backend dependencies: bundle install
 Install frontend dependencies: npm install (or yarn install if using Yarn)  
 
@@ -43,5 +43,7 @@ Push to your branch: git push origin feature/new-feature
 Open a Pull Request on GitHub.
 
 ## Postman Documentation
+
+
 
 ## Models 
