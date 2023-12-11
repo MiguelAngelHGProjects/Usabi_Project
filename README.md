@@ -22,7 +22,7 @@ Node.js and npm (or Yarn): [Specify versions]
 PostgreSQL: [Specify version]
 
 ## Installation
-Clone this repository: git clone https://github.com/your_username/OrquestaApp.git
+Clone this repository: git clone: https://github.com/MiguelAngelHGProjects/Usabi_Project.git
 Navigate to the project directory: cd OrquestaApp
 Install backend dependencies: bundle install
 Install frontend dependencies: npm install (or yarn install if using Yarn)  
