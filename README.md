@@ -56,3 +56,4 @@ Open a Pull Request on GitHub.
 ![UserCases](imagesModels/UserCases.png)
 
 ## Postman Documentation
+https://documenter.getpostman.com/view/29847204/2s9YkhhjqE
