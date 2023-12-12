@@ -1,17 +1,17 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  playlist_id: MyString
-  Season: MyString
-  ProjectNote: MyString
-  ProjectDateIni: MyString
-  ProjectDateEnd: MyString
-  Projectevision: MyString
+# one:
+#   playlist_id: MyString
+#   Season: MyString
+#   ProjectNote: MyString
+#   ProjectDateIni: MyString
+#   ProjectDateEnd: MyString
+#   Projectevision: MyString
 
-two:
-  playlist_id: MyString
-  Season: MyString
-  ProjectNote: MyString
-  ProjectDateIni: MyString
-  ProjectDateEnd: MyString
-  Projectevision: MyString
+# two:
+#   playlist_id: MyString
+#   Season: MyString
+#   ProjectNote: MyString
+#   ProjectDateIni: MyString
+#   ProjectDateEnd: MyString
+#   Projectevision: MyString

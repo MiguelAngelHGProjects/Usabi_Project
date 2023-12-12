@@ -3,15 +3,15 @@
 one:
   name: MyString
   lastname: MyString
-  email: MyString
+  email: b@b.com
   password: MyString
   icon: MyString
-  type: 
+  user_type: User
 
 two:
   name: MyString
   lastname: MyString
-  email: MyString
+  email: a@a.com
   password: MyString
   icon: MyString
-  type: 
+  user_type: Admin
