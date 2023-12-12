@@ -33,6 +33,8 @@ Start the backend server: rails server
 Start the frontend development server: npm start (or yarn start)
 Open your browser and visit http://localhost:3000
 
+-The users mostly can see only de proyects and the other information about playlists and their relation but not create, delete or update something of everything.
+
 ## Configuration
 
 Configure your PostgreSQL database:
