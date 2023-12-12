@@ -17,7 +17,7 @@
 /.env.*
 
 # Ignore application configuration.
-/config/application.yml
+Usabi_Project/backend/config/application.yml
 
 # Ignore yarn packages.
 /yarn-error.log
