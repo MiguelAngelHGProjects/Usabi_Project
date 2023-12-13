@@ -34,7 +34,9 @@ const Dashboard = () => {
           setProjects(projectsData);
           setPlaylists(playlistsData);
         } else {
-          console.log('Este usuario no es un administrador. Puedes personalizar la lógica aquí.');
+          // console.log('Este usuario no es un administrador.');
+          const projectsData = await projectsService.getProjects();
+          setProjects(projectsData);
         }
       } catch (error) {
         console.error('Error fetching data in Dashboard:', error);
@@ -161,81 +163,84 @@ const Dashboard = () => {
         <Header title="Proyectos" />
       </div>
       <div className="primary-container">
-        {user && user.data.user_type === 'admin' && (
-          <>
+
+        <>
+          {user && user.data.user_type === 'admin' && (
             <Button type="primary" onClick={showModal} style={{ marginLeft: '16px' }} disabled={imageLoading}>
               Crear Proyecto
             </Button>
-            {projects.length === 0 ? (
-              <p>No hay proyectos disponibles.</p>
-            ) : (
-              projects.map(project => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onDelete={() => handleDelete(project.id)}
-                  onUpdate={updatedData => handleUpdate(project.id, updatedData)}
-                />
-              ))
-            )}
+          )}
+          {projects.length === 0 ? (
+            <p>No hay proyectos disponibles.</p>
+          ) : (
+            projects.map(project => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onDelete={() => handleDelete(project.id)}
+                onUpdate={updatedData => handleUpdate(project.id, updatedData)}
+                userdata={user}
+              />
+            ))
+          )}
 
-            <Modal title="Crear Nuevo Proyecto" visible={open} onOk={handleOk} onCancel={handleCancel}>
-              <Form form={form} name="createProjectForm">
-                <Form.Item
-                  name="projectImage"
-                  label="Imagen del Proyecto"
-                  rules={[{ required: true, message: 'Por favor, sube la imagen del proyecto' }]}
-                >
-                  <Upload {...uploadProps} accept=".png, .jpg, .jpeg">
-                    <Button icon={<PlusOutlined />} />
-                  </Upload>
-                </Form.Item>
-                <Form.Item
-                  name="PlaylistId"
-                  label="Playlist ID"
-                  rules={[{ required: true, message: 'Por favor, selecciona una Playlist' }]}
-                >
-                  <Select placeholder="Selecciona una Playlist">
-                    {playlists.map(playlist => (
-                      <Option key={playlist.id} value={playlist.id}>
-                        {playlist.WorkName}
-                      </Option>
-                    ))}
-                  </Select>
-                </Form.Item>
+          <Modal title="Crear Nuevo Proyecto" visible={open} onOk={handleOk} onCancel={handleCancel}>
+            <Form form={form} name="createProjectForm">
+              <Form.Item
+                name="projectImage"
+                label="Imagen del Proyecto"
+                rules={[{ required: true, message: 'Por favor, sube la imagen del proyecto' }]}
+              >
+                <Upload {...uploadProps} accept=".png, .jpg, .jpeg">
+                  <Button icon={<PlusOutlined />} />
+                </Upload>
+              </Form.Item>
+              <Form.Item
+                name="PlaylistId"
+                label="Playlist ID"
+                rules={[{ required: true, message: 'Por favor, selecciona una Playlist' }]}
+              >
+                <Select placeholder="Selecciona una Playlist">
+                  {playlists.map(playlist => (
+                    <Option key={playlist.id} value={playlist.id}>
+                      {playlist.WorkName}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
 
-                <Form.Item
-                  name="Season"
-                  label="Season"
-                  rules={[{ required: true, message: 'Por favor, ingresa la temporada' }]}
-                >
-                  <Input />
-                </Form.Item>
-                <Form.Item
-                  name="ProjectNote"
-                  label="Project Note"
-                  rules={[{ required: true, message: 'Por favor, ingresa la nota del proyecto' }]}
-                >
-                  <Input />
-                </Form.Item>
-                <Form.Item
-                  name="Projectrevision"
-                  label="Revisión del Proyecto"
-                  rules={[{ required: true, message: 'Por favor, ingresa la revisión del proyecto' }]}
-                >
-                  <Input />
-                </Form.Item>
-                <Form.Item
-                  name="dateRange"
-                  label="Date Range"
-                  rules={[{ required: true, message: 'Por favor, selecciona el rango de fechas' }]}
-                >
-                  <RangePicker />
-                </Form.Item>
-              </Form>
-            </Modal>
-          </>
-        )}
+              <Form.Item
+                name="Season"
+                label="Season"
+                rules={[{ required: true, message: 'Por favor, ingresa la temporada' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="ProjectNote"
+                label="Project Note"
+                rules={[{ required: true, message: 'Por favor, ingresa la nota del proyecto' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="Projectrevision"
+                label="Revisión del Proyecto"
+                rules={[{ required: true, message: 'Por favor, ingresa la revisión del proyecto' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="dateRange"
+                label="Date Range"
+                rules={[{ required: true, message: 'Por favor, selecciona el rango de fechas' }]}
+              >
+                <RangePicker />
+              </Form.Item>
+            </Form>
+          </Modal>
+        </>
+
         {!user && <Link to="/" />}
       </div>
       <div>

@@ -205,9 +205,11 @@ const UserProjectForm = () => {
             {userProjects.map((userProject) => (
               <li key={userProject.id}>
                 <strong>Usuario:</strong> {userProject.name} {userProject.lastname} <strong>Proyecto:</strong> {userProject.Season}
+                {user && user.data.user_type === 'admin' && (
                 <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
                   Eliminar
                 </Button>
+                )}
               </li>
             ))}
           </ul>
