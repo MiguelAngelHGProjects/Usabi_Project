@@ -31,7 +31,8 @@ const PlaylistComponent = () => {
         if (userDetails.data.user_type === 'admin') {
           fetchPlaylists();
         } else {
-          console.log('Este usuario no es un administrador. Puedes personalizar la lógica aquí.');
+          // console.log('Este usuario no es un administrador.');
+          fetchPlaylists();
         }
       } catch (error) {
         console.error('Error fetching data:', error);
