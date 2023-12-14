@@ -66,8 +66,11 @@ Open a Pull Request on GitHub.
 
 ## Models 
 - E/R model
+
 ![EntityModel](imagesModels/EntityModel.png)
 - Class diagram
+
 ![ClassDiagram](imagesModels/ClassDiagram.png)
 - Use cases
+
 ![UserCases](imagesModels/UserCases.png)
