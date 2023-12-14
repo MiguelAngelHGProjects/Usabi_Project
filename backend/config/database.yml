@@ -1,52 +1,26 @@
-# PostgreSQL. Versions 9.3 and up are supported.
-#
-# Install the pg driver:
-#   gem install pg
-# On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
-# On Windows:
-#   gem install pg
-#       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
-#
-# Configure Using Gemfile
-# gem "pg"
-#
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: usabi_db
-
-  # The specified database role being used to connect to PostgreSQL.
-  # To create additional roles in PostgreSQL see `$ createuser --help`.
-  # When left blank, PostgreSQL will use the default role. This is
-  # the same name as the operating system user running Rails.
   username: <%= ENV["username_postgres"] %>
   password: <%= ENV["password_postgres"] %>
   host: <%= ENV["host_postgres"] %>
   port: <%= ENV["port_postgres"] %>
-  #schema_search_path: myapp,sharedapp,public
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-#
-# If the connection URL is provided in the special DATABASE_URL environment
-# variable, Rails will automatically merge its configuration values on top of
-# the values provided in this file. Alternatively, you can specify a connection
-# URL environment variable explicitly:
-#
-#   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
-#
-# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
-# for a full overview on how database connection configuration can be specified.
-#
+
 production:
   <<: *default
   database: backend_production
   username: backend
   password: <%= ENV["BACKEND_DATABASE_PASSWORD"] %>
+
+test:
+  <<: *default
+  database: backend_test
+  username: <%= ENV["BACKEND_DATABASE_USERNAME"] %>
+  password: <%= ENV["BACKEND_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BACKEND_DATABASE_HOST"] %>
+  port: <%= ENV["BACKEND_DATABASE_PORT"] %>

@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   def show
     render json: project_response_data(@project)
   end
-
+  
   # GET /projects/new
   def new
     @project = Project.new
@@ -36,18 +36,16 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        purge_project_image_if_needed
-        attach_project_image
-        format.html { redirect_to project_url(@project), notice: 'Project was successfully updated.' }
-        format.json { render json: project_response_data(@project), status: :ok, location: @project }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    Rails.logger.debug "Params received: #{params.inspect}"
+  
+    if @project.update(project_params)
+      purge_project_image_if_needed
+      attach_project_image
+      render json: project_response_data(@project), status: :ok, location: @project
+    else
+      render json: @project.errors, status: :unprocessable_entity
     end
-  end
+  end 
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
@@ -63,7 +61,7 @@ class ProjectsController < ApplicationController
   def project_response_data(project)
     {
       id: project.id,
-      PlaylistId: project.PlaylistId,
+      playlist_id: project.playlist_id,
       Season: project.Season,
       ProjectNote: project.ProjectNote,
       project_date_ini: project.project_date_ini&.strftime('%Y-%m-%d'),
@@ -72,7 +70,7 @@ class ProjectsController < ApplicationController
       projectDateRange: date_range_string(project),
       projectImage_data: project_image_data(project)
     }
-  end
+  end  
 
   def date_range_string(project)
     return unless project.project_date_ini && project.project_date_end
@@ -99,13 +97,12 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:PlaylistId, :Season, :ProjectNote, :Projectrevision, :projectImage, :projectDateRange)
-  end
+    params.require(:project).permit(:playlist_id, :Season, :ProjectNote, :Projectrevision, :projectImage, :projectDateRange)
+  end  
 
   def parse_date_range_params
     if params[:projectDateRange].present?
       date_range_parts = params[:projectDateRange].split(' to ')
-      # Validar que ambos extremos del rango estén presentes antes de asignar
       @project.project_date_ini = date_range_parts[0].present? ? Date.parse(date_range_parts[0]) : nil
       @project.project_date_end = date_range_parts[1].present? ? Date.parse(date_range_parts[1]) : nil
     end

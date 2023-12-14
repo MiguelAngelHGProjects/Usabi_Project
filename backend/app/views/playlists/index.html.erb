@@ -1,6 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<% flash.each do |key, value| %>
+  <p style="color: green"><%= value %></p>
+<% end %>
 
-<h1>Playlists</h1>
+<h1>playlist</h1>
 
 <div id="playlists">
   <% @playlists.each do |playlist| %>

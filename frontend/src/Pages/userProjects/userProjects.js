@@ -136,62 +136,66 @@ const UserProjectForm = () => {
           <Header title="Relaciones" />
         </div>
         <div>
-          <Form
-            form={form}
-            onFinish={handleSubmit}
-            className="rel-form"
-            layout="vertical"
-            initialValues={{
-              userSelect: '',
-              projectSelect: '',
-            }}
-          >
-            <Form.Item
-              label={<h3>Usuarios :</h3>}
-              name="userSelect"
-              rules={[{ required: true, message: 'Seleccione un usuario' }]}
-              className="form-labels"
+          {user && user.data.user_type === 'admin' && (
+            <Form
+              form={form}
+              onFinish={handleSubmit}
+              className="rel-form"
+              layout="vertical"
+              initialValues={{
+                userSelect: '',
+                projectSelect: '',
+              }}
             >
-              <Select
-                placeholder="Seleccionar usuario"
-                value={selectedUser}
-                onChange={(value) => setSelectedUser(value)}
-                style={{ width: '98%' }}
+              <Form.Item
+                label={<h3>Usuarios :</h3>}
+                name="userSelect"
+                rules={[{ required: true, message: 'Seleccione un usuario' }]}
+                className="form-labels"
               >
-                {users.map((user) => (
-                  <Option key={user.id} value={user.id}>
-                    {user.name}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
+                <Select
+                  placeholder="Seleccionar usuario"
+                  value={selectedUser}
+                  onChange={(value) => setSelectedUser(value)}
+                  style={{ width: '98%' }}
+                >
+                  {users.map((user) => (
+                    <Option key={user.id} value={user.id}>
+                      {user.name}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
 
-            <Form.Item
-              label={<h3>Proyectos:</h3>}
-              name="projectSelect"
-              rules={[{ required: true, message: 'Seleccione un proyecto' }]}
-              className="form-labels"
-            >
-              <Select
-                placeholder="Seleccionar proyecto"
-                value={selectedProject}
-                onChange={(value) => setSelectedProject(value)}
-                style={{ width: '98%' }}
+              <Form.Item
+                label={<h3>Proyectos:</h3>}
+                name="projectSelect"
+                rules={[{ required: true, message: 'Seleccione un proyecto' }]}
+                className="form-labels"
               >
-                {projects.map((project) => (
-                  <Option key={project.id} value={project.id}>
-                    {project.Season}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
+                <Select
+                  placeholder="Seleccionar proyecto"
+                  value={selectedProject}
+                  onChange={(value) => setSelectedProject(value)}
+                  style={{ width: '98%' }}
+                >
+                  {projects.map((project) => (
+                    <Option key={project.id} value={project.id}>
+                      {project.Season}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
 
-            <Form.Item className='form-btn'>
-              <Button type="primary" htmlType="submit" className="form-btn">
-                Crear Relación
-              </Button>
-            </Form.Item>
-          </Form>
+              <Form.Item className='form-btn'>
+                {user && user.data.user_type === 'admin' && (
+                  <Button type="primary" htmlType="submit" className="form-btn">
+                    Crear Relación
+                  </Button>
+                )}
+              </Form.Item>
+            </Form>
+          )}
         </div>
 
         <div className="showUserProjects" aria-live="polite" aria-atomic="true" role="status">
@@ -201,9 +205,11 @@ const UserProjectForm = () => {
             {userProjects.map((userProject) => (
               <li key={userProject.id}>
                 <strong>Usuario:</strong> {userProject.name} {userProject.lastname} <strong>Proyecto:</strong> {userProject.Season}
+                {user && user.data.user_type === 'admin' && (
                 <Button className="delete-button" onClick={() => deleteUserProject(userProject.id)}>
                   Eliminar
                 </Button>
+                )}
               </li>
             ))}
           </ul>
