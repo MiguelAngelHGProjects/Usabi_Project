@@ -71,3 +71,9 @@ Open a Pull Request on GitHub.
 ![ClassDiagram](imagesModels/ClassDiagram.png)
 - Use cases
 ![UserCases](imagesModels/UserCases.png)
+
+## User manual
+
+- [User document](UserHelper/Documento%20de%20ayuda.html)
+- []()
+- []()
