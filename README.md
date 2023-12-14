@@ -10,7 +10,6 @@
 - [Figma style](#figma-style)   
 - [Usage](#usage)
 - [Configuration](#configuration)
-- [Contributing](#contributing)
 - [Models](#models)
 - [Technology comparison](#technology-comparison)
 - [Planification](#planification)
@@ -63,16 +62,6 @@ Configure your PostgreSQL database:
 
 - Open your `config/aplication.yml` file
 - Update the `username`, `password`, and `database` values with your own PostgreSQL credentials
-
-## Contributing
-
-Contributions are welcome! If you want to contribute to the project, follow these steps:
-
-Fork the repository.
-Create a branch for your contribution: git checkout -b feature/new-feature
-Make your changes and commit: git commit -m 'Add new feature'
-Push to your branch: git push origin feature/new-feature
-Open a Pull Request on GitHub.
 
 ## Models 
 - E/R model
