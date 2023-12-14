@@ -91,3 +91,13 @@ Configure your PostgreSQL database:
 
 ## User manual
 - Once the user enters the application and registers, they will be able to see the projects created by the administrators and by clicking on the different sections of the menu we will be able to see the playlists and the relationships that the users have with the projects to which they are assigned.
+
+- Images
+
+![Register](manualImages/registrars.png)
+
+![Projects](manualImages/Proyectos.png)
+
+![Playlists](manualImages/Playlist.png)
+
+![Relations](manualImages/Relaciones.png)
