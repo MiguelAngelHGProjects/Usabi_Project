@@ -23,7 +23,7 @@ const userService = {
     }
   },
 
- changePassword: async (userId, currentPassword, newPassword, confirmPassword) => {
+  changePassword: async (userId, currentPassword, newPassword, confirmPassword) => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
@@ -47,6 +47,32 @@ const userService = {
       return response.data.data;
     } catch (error) {
       console.error('Error changing password:', error);
+      throw error;
+    }
+  },
+
+  updateProfile: async (userId, profileData) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No token found in localStorage.');
+      }
+
+      const response = await axios.put(
+        `${backendUrl}/users/${userId}/update_profile`,
+        {
+          ...profileData,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return response.data.data;
+    } catch (error) {
+      console.error('Error updating profile:', error);
       throw error;
     }
   },
