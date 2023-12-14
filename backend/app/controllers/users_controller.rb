@@ -25,56 +25,43 @@ class UsersController < ApplicationController
   end
   
   def update
-    if user_params[:password].present? && !@user.update_with_password(user_params)
-      render json: {
-        status: 422,
-        error: "Unprocessable Entity",
-        message: @user.errors.full_messages.join(', ')
-      }, status: :unprocessable_entity
-    elsif @user.update(user_params.except(:password))
-      render json: {
-        status: { code: 200, message: 'User updated successfully.' },
-        data: UserSerializer.new(@user).as_json
-      }, status: :ok
+    if user_params[:password].present?
+      update_with_password
     else
-      render json: {
-        status: 422,
-        error: "Unprocessable Entity",
-        message: @user.errors.full_messages.join(', ')
-      }, status: :unprocessable_entity
+      update_without_password
+    end
+  end
+
+  def updatedata
+    if @user.update(user_data_params)
+      render_success_response(@user)
+    else
+      render_error_response(@user)
     end
   end
   
   def destroy
-    user = User.find(params[:id])
-    user.destroy
+    @user.destroy
     head :no_content
   end
   
   def change_password
     set_user
   
-    if @user.valid_password?(params[:current_password])
-      if @user.update(password: params[:new_password], password_confirmation: params[:password_confirmation])
-        render json: {
-          status: { code: 200, message: 'Password changed successfully.' },
-          data: UserSerializer.new(@user).as_json
-        }, status: :ok
-      else
-        render json: {
-          status: 422,
-          error: "Unprocessable Entity",
-          message: @user.errors.full_messages.join(', ')
-        }, status: :unprocessable_entity
-      end
+    if @user.valid_password?(password_params[:current_password])
+      update_password
     else
-      render json: {
-        status: 401,
-        error: "Unauthorized",
-        message: 'Current password is incorrect.'
-      }, status: :unauthorized
+      render_unauthorized_response('Current password is incorrect.')
     end
-  end  
+  end
+
+  def update_profile
+    if @user.update(user_data_params)
+      render_success_response(@user)
+    else
+      render_error_response(@user)
+    end
+  end
   
   private
   
@@ -82,13 +69,62 @@ class UsersController < ApplicationController
     params.permit(:new_password, :password_confirmation)
   end
   
-  private
-
   def set_user
     @user = User.find(params[:id])
   end
 
   def user_params
     params.require(:user).permit(:name, :lastname, :email, :password, :icon, :user_type)
+  end
+
+  def user_data_params
+    params.require(:user).permit(:name, :lastname, :icon)
+  end
+  
+  def update_with_password
+    if @user.update_with_password(user_params)
+      render_success_response(@user)
+    else
+      render_error_response(@user)
+    end
+  end
+
+  def update_without_password
+    if @user.update(user_params.except(:password))
+      render_success_response(@user)
+    else
+      render_error_response(@user)
+    end
+  end
+
+  def update_password
+    if @user.update(password: password_params[:new_password], password_confirmation: password_params[:password_confirmation])
+      render_success_response(@user)
+    else
+      render_error_response(@user)
+    end
+  end
+
+  def render_success_response(user)
+    render json: {
+      status: { code: 200, message: 'Operation successful.' },
+      data: UserSerializer.new(user).as_json
+    }, status: :ok
+  end
+
+  def render_error_response(user)
+    render json: {
+      status: 422,
+      error: "Unprocessable Entity",
+      message: user.errors.full_messages.join(', ')
+    }, status: :unprocessable_entity
+  end
+
+  def render_unauthorized_response(message)
+    render json: {
+      status: 401,
+      error: "Unauthorized",
+      message: message
+    }, status: :unauthorized
   end
 end
