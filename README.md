@@ -65,9 +65,9 @@ Push to your branch: git push origin feature/new-feature
 Open a Pull Request on GitHub.
 
 ## Models 
-<!-- - E/R model
+- E/R model
 ![EntityModel](imagesModels/EntityModel.png)
 - Class diagram
 ![ClassDiagram](imagesModels/ClassDiagram.png)
 - Use cases
-![UserCases](imagesModels/UserCases.png) -->
+![UserCases](imagesModels/UserCases.png)
