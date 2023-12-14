@@ -65,19 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
     t.index ["playlist_id"], name: "index_projects_on_playlist_id"
   end
 
-  create_table "schedules", force: :cascade do |t|
-    t.bigint "project_id"
-    t.string "Room"
-    t.string "ScheduleType"
-    t.string "ScheduleName"
-    t.date "ScheduleDate"
-    t.integer "ScheduleHourRange"
-    t.string "ScheduleNote"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_schedules_on_project_id"
-  end
-
   create_table "user_projects", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "project_id"
@@ -107,7 +94,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "playlists"
-  add_foreign_key "schedules", "projects"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"
 end
