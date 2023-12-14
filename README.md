@@ -49,7 +49,7 @@ Install frontend dependencies: npm install (or yarn install if using Yarn)
 https://documenter.getpostman.com/view/29847204/2s9YkhhjqE
 
 ## Figma style
-- https://www.figma.com/file/ZNQtIRRKhOMOLfblaa2AVd/Usabi_Project?type=design&node-id=0-1&mode=design
+https://www.figma.com/file/ZNQtIRRKhOMOLfblaa2AVd/Usabi_Project?type=design&node-id=0-1&mode=design
 
 ## Usage
 Start the backend server: rails server
