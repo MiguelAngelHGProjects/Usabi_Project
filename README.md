@@ -74,3 +74,7 @@ Open a Pull Request on GitHub.
 - Use cases
 
 ![UserCases](imagesModels/UserCases.png)
+
+- Model
+
+![Model](imagesModels/Modelo.png)
