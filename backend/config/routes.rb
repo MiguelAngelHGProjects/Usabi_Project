@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :destroy] do
     member do
       put 'change_password'
+      put 'update_profile'
     end    
   end
   resources :user_projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]  
