@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, Spin, Avatar, Descriptions, Form, Input, Button, message } from 'antd';
 import userService from '../../services/user.services';
 import './styles.css';
@@ -9,6 +10,7 @@ function Userconf() {
   const [loading, setLoading] = useState(true);
   const [form] = Form.useForm();
   const [changePasswordVisible, setChangePasswordVisible] = useState(false);
+  const navigate = useNavigate();
 
   const handleChangePassword = async (values) => {
     try {
@@ -24,7 +26,12 @@ function Userconf() {
         values.newPassword,
         values.confirmPassword
       );
-      message.success('Password changed successfully!');
+      
+      localStorage.removeItem('token');
+      
+      message.success('Password changed successfully! Please log in again.');
+      navigate('/');
+      
       form.resetFields();
     } catch (error) {
       console.error('Error changing password:', error);
@@ -50,6 +57,27 @@ function Userconf() {
   const toggleChangePassword = () => {
     setChangePasswordVisible((prevVisible) => !prevVisible);
   };
+
+  const handleDeleteUser = async () => {
+  try {
+    const userId = userData?.id;
+    if (!userId) {
+      console.error('User ID not found.');
+      return;
+    }
+
+    const confirmed = window.confirm('Are you sure you want to delete your account? This action cannot be undone.');
+
+    if (confirmed) {
+      navigate('/');
+      await userService.deleteUser(userId);
+      message.success('User deleted successfully!');
+    }
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    message.error('Error deleting user. Please try again.');
+  }
+};
 
   return (
     <div>
@@ -80,6 +108,9 @@ function Userconf() {
             </div>
             <Button className='showps-button' onClick={toggleChangePassword}>
               {changePasswordVisible ? 'Hide Change Password' : 'Show Change Password'}
+            </Button>
+            <Button className='delete-button' onClick={handleDeleteUser}>
+              Delete Account
             </Button>
             {changePasswordVisible && (
               <Form form={form} onFinish={handleChangePassword} layout="vertical" className='password-container'>
