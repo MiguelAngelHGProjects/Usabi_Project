@@ -23,11 +23,7 @@ const userService = {
     }
   },
 
-<<<<<<< HEAD
- changePassword: async (userId, currentPassword, newPassword, confirmPassword) => {
-=======
   changePassword: async (userId, currentPassword, newPassword, confirmPassword) => {
->>>>>>> d67acd56e14dce37ef765946cdb05696a50688e8
     try {
       const token = localStorage.getItem('token');
       if (!token) {
@@ -54,8 +50,6 @@ const userService = {
       throw error;
     }
   },
-<<<<<<< HEAD
-=======
 
   updateProfile: async (userId, profileData) => {
     try {
@@ -82,7 +76,6 @@ const userService = {
       throw error;
     }
   },
->>>>>>> d67acd56e14dce37ef765946cdb05696a50688e8
 };
 
 export default userService;
