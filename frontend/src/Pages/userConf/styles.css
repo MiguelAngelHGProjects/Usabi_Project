@@ -16,26 +16,26 @@
   display: block;
 }
 
-.showps-button {
+.change-button {
   margin: 3%;
   background-color: red;
   border-color: red;
   color: white;
 }
 
-.showps-button:hover {
+.change-button:hover {
   background-color: darkred;
   border-color: darkred;
 }
 
-.change-button {
+.showps-button {
   margin: 3%;
   background-color: orange;
   border-color: orange;
   color: white;
 }
 
-.change-button:hover {
+.showps-button:hover {
   background-color: darkorange;
   border-color: darkorange;
 }
