@@ -9,7 +9,7 @@ const Footer = ({ image }) => {
     <div className='footer-container'>            
       <div className='icons-container'>
       </div>
-      <Button className='configIcon' icon={<img src={calIcon} alt="Calendar Icon" />} style={{ background: 'transparent', border: 'none' }} />
+      <Button className='configIcon' href='/AssingProjects' icon={<img src={calIcon} alt="Calendar Icon" />} style={{ background: 'transparent', border: 'none' }} />
       {image ? (
         <a href='/Settings'>
         <img src={image} alt="User Icon" className="user-icon" />
