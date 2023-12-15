@@ -44,17 +44,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
 
   create_table "playlists", force: :cascade do |t|
     t.integer "PlaylistOrder"
-    t.integer "ProjectId"
     t.string "WorkAutor"
     t.string "WorkName"
     t.integer "WorkDuration"
-    t.string "PlaylistString"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "PlaylistId"
+    t.bigint "playlist_id"
     t.string "Season"
     t.string "ProjectNote"
     t.text "projectDateRange"
@@ -64,18 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
     t.datetime "updated_at", null: false
     t.date "project_date_ini"
     t.date "project_date_end"
-  end
-
-  create_table "schedules", force: :cascade do |t|
-    t.integer "ProjectId"
-    t.string "Room"
-    t.string "ScheduleType"
-    t.string "ScheduleName"
-    t.date "ScheduleDate"
-    t.integer "ScheduleHourRange"
-    t.string "ScheduleNote"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_projects_on_playlist_id"
   end
 
   create_table "user_projects", force: :cascade do |t|
@@ -106,6 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_153344) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "projects", "playlists"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"
 end

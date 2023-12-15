@@ -1,7 +1,7 @@
 class ProjectSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :id, :PlaylistId, :Season, :ProjectNote, :project_date_ini, :project_date_end, :Projectrevision, :projectDateRange, :projectImage_data
+  attributes :id, :playlist_id, :Season, :ProjectNote, :project_date_ini, :project_date_end, :Projectrevision, :projectDateRange, :projectImage_data
 
   def project_date_ini
     object.project_date_ini&.strftime('%Y-%m-%d')

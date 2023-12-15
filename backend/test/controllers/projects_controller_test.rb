@@ -17,7 +17,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create project" do
     assert_difference("Project.count") do
-      post projects_url, params: { project: { PlaylistId: @project.PlaylistId, ProjectDateEnd: @project.ProjectDateEnd, ProjectDateIni: @project.ProjectDateIni, ProjectNote: @project.ProjectNote, Projectevision: @project.Projectevision, Season: @project.Season } }
+      post projects_url, params: { project: { playlist_id: @project.playlist_id, ProjectDateEnd: @project.ProjectDateEnd, ProjectDateIni: @project.ProjectDateIni, ProjectNote: @project.ProjectNote, Projectevision: @project.Projectevision, Season: @project.Season } }
     end
 
     assert_redirected_to project_url(Project.last)
@@ -34,7 +34,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update project" do
-    patch project_url(@project), params: { project: { PlaylistId: @project.PlaylistId, ProjectDateEnd: @project.ProjectDateEnd, ProjectDateIni: @project.ProjectDateIni, ProjectNote: @project.ProjectNote, Projectevision: @project.Projectevision, Season: @project.Season } }
+    patch project_url(@project), params: { project: { playlist_id: @project.playlist_id, ProjectDateEnd: @project.ProjectDateEnd, ProjectDateIni: @project.ProjectDateIni, ProjectNote: @project.ProjectNote, Projectevision: @project.Projectevision, Season: @project.Season } }
     assert_redirected_to project_url(@project)
   end
 

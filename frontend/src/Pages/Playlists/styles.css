@@ -1,0 +1,43 @@
+.playlist-container {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.add-button {
+  top: 120px;
+}
+
+.playlist {
+  top: 120px;
+}
+
+.playlist-card {
+  width: 90%;
+  margin: 16px;
+}
+
+  .delete-button {
+    margin: 3%;
+    background-color: red;
+    border-color: red;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+    border-color: darkred;
+  }
+
+  .update-button {
+    margin: 3%;
+    background-color: orange;
+    border-color: orange;
+    color: white;
+  }
+
+  .update-button:hover {
+    background-color: darkorange;
+    border-color: darkorange;
+  }

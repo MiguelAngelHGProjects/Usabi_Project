@@ -17,7 +17,7 @@ class PlaylistsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create playlist" do
     assert_difference("Playlist.count") do
-      post playlists_url, params: { playlist: { PlaylistOrder: @playlist.PlaylistOrder, PlaylistString: @playlist.PlaylistString, ProjectId: @playlist.ProjectId, WorkAutor: @playlist.WorkAutor, WorkDuration: @playlist.WorkDuration, WorkName: @playlist.WorkName } }
+      post playlists_url, params: { playlist: { PlaylistOrder: @playlist.PlaylistOrder, WorkAutor: @playlist.WorkAutor, WorkDuration: @playlist.WorkDuration, WorkName: @playlist.WorkName } }
     end
 
     assert_redirected_to playlist_url(Playlist.last)
@@ -34,7 +34,7 @@ class PlaylistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update playlist" do
-    patch playlist_url(@playlist), params: { playlist: { PlaylistOrder: @playlist.PlaylistOrder, PlaylistString: @playlist.PlaylistString, ProjectId: @playlist.ProjectId, WorkAutor: @playlist.WorkAutor, WorkDuration: @playlist.WorkDuration, WorkName: @playlist.WorkName } }
+    patch playlist_url(@playlist), params: { playlist: { PlaylistOrder: @playlist.PlaylistOrder, WorkAutor: @playlist.WorkAutor, WorkDuration: @playlist.WorkDuration, WorkName: @playlist.WorkName } }
     assert_redirected_to playlist_url(@playlist)
   end
 

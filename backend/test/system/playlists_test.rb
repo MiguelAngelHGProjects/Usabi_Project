@@ -15,8 +15,6 @@ class PlaylistsTest < ApplicationSystemTestCase
     click_on "New playlist"
 
     fill_in "Playlistorder", with: @playlist.PlaylistOrder
-    fill_in "Playliststring", with: @playlist.PlaylistString
-    fill_in "Projectid", with: @playlist.ProjectId
     fill_in "Workautor", with: @playlist.WorkAutor
     fill_in "Workduration", with: @playlist.WorkDuration
     fill_in "Workname", with: @playlist.WorkName
@@ -31,8 +29,6 @@ class PlaylistsTest < ApplicationSystemTestCase
     click_on "Edit this playlist", match: :first
 
     fill_in "Playlistorder", with: @playlist.PlaylistOrder
-    fill_in "Playliststring", with: @playlist.PlaylistString
-    fill_in "Projectid", with: @playlist.ProjectId
     fill_in "Workautor", with: @playlist.WorkAutor
     fill_in "Workduration", with: @playlist.WorkDuration
     fill_in "Workname", with: @playlist.WorkName

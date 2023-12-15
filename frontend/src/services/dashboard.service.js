@@ -36,20 +36,20 @@ const dashboardService = {
       if (!token) {
         throw new Error('No token found in localStorage.');
       }
-    
+
       const response = await axios.get(`${backendUrl}/current_user`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-    
+
       return response.data;
     } catch (error) {
       console.error('Error getting user details:', error);
       throw error;
     }
   },
-  
+
   logout: async () => {
     try {
       const token = localStorage.getItem('token');
@@ -64,7 +64,7 @@ const dashboardService = {
       throw error;
     }
   },
-  
+
 };
 
 export default dashboardService;

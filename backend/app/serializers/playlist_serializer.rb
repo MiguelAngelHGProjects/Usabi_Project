@@ -1,3 +1,3 @@
 class PlaylistSerializer < ActiveModel::Serializer
-  attributes :id, :PlaylistOrder, :ProjectId, :WorkAutor, :WorkName, :WorkDuration, :PlaylistString
+  attributes :id, :PlaylistOrder, :WorkAutor, :WorkName, :WorkDuration
 end
