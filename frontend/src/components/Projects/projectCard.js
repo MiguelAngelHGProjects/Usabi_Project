@@ -77,7 +77,7 @@ const ProjectCard = ({ project, onDelete, onUpdate, userdata }) => {
                     <p>No hay imagen disponible</p>
                 )}
                 <div className="card-text">
-                    <p>{project.ProjectNote}</p>
+                    <p>{project.Season}</p>
                     <p>
                         {startDate} - {endDate}
                     </p>
