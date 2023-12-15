@@ -17,7 +17,7 @@ const Footer = ({ image }) => {
       ) : (
         <span>Imagen no disponible</span>
       )}
-      <Button className='configIcon' icon={<img src={configIcon} alt="Config Icon" />} style={{ background: 'transparent', border: 'none' }} />
+      <Button className='configIcon' href='../../../UserHelper/Documento de ayuda.html' icon={<img src={configIcon} alt="Config Icon" />} style={{ background: 'transparent', border: 'none' }} />
     </div>
   );
 };
