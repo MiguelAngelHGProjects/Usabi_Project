@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Menu as AntdMenu, Button } from 'antd';
 import dashboardService from '../../services/dashboard.service';
 
@@ -13,7 +13,7 @@ const Menu = () => {
         console.error('Error fetching user details in Menu:', error);
       }
     };
-  
+
     const token = localStorage.getItem('token');
     if (token) {
       fetchData();
@@ -21,7 +21,7 @@ const Menu = () => {
       console.error('No token found in Menu. Redirecting to login page.');
       navigate('/');
     }
-  }, [navigate]); 
+  }, [navigate]);
 
   const handleLogout = async () => {
     try {
@@ -36,13 +36,24 @@ const Menu = () => {
   return (
     <AntdMenu mode="horizontal">
       <AntdMenu.Item key="dashboard">
-        <Link to="/dashboard">Dashboard</Link>
+        <Button type="link" href="/dashboard">
+          Dashboard
+        </Button>
       </AntdMenu.Item>
       <AntdMenu.Item key="assing-projects">
-        <Link to="/AssingProjects">Asignar Proyectos</Link>
+        <Button type="link" href="/AssingProjects">
+          Asignar Proyectos
+        </Button>
       </AntdMenu.Item>
       <AntdMenu.Item key="PlayLists">
-        <Link to="/PlayLists">PlayLists</Link>
+        <Button type="link" href="/PlayLists">
+          PlayLists
+        </Button>
+      </AntdMenu.Item>
+      <AntdMenu.Item key="reports">
+        <Button type="link" href="http://localhost:5488/templates/Dc1dRyhvSA">
+          Informe de Proyectos
+        </Button>
       </AntdMenu.Item>
       <AntdMenu.Item key="logout">
         <Button type="link" onClick={handleLogout}>

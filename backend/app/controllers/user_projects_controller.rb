@@ -1,5 +1,7 @@
 class UserProjectsController < ApplicationController
   before_action :set_user_project, only: %i[show edit update destroy]
+  before_action :set_user_project, except: [:usabi_data_index], if: -> { params[:id].present? }
+  
 
   # GET /user_projects or /user_projects.json
   def index
@@ -55,11 +57,28 @@ class UserProjectsController < ApplicationController
     end
   end
 
+  def usabi_data_index
+    user_project_data = UserProject.includes(:user, :project).group_by do |user_project|
+      user_project.user.name
+    end.map do |user_name, projects|
+      {
+        user_name: user_name,
+        projects: projects.map { |project| project.project.Season }
+      }
+    end
+  
+    render json: { user_project_data: user_project_data }
+  end
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user_project
     @user_project = UserProject.find(params[:id])
+  end
+  
+  def set_user_project_for_index
+    # No need to find a UserProject here, as usabi_data_index doesn't rely on a specific UserProject
   end
 
   # Only allow a list of trusted parameters through.
