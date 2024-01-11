@@ -22,5 +22,11 @@ Rails.application.routes.draw do
       put 'update_profile'
     end    
   end
-  resources :user_projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]  
+  
+  resources :user_projects, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'usabi_data', action: 'usabi_data_index'
+    end
+  end
+  
 end
