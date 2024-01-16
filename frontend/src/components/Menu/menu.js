@@ -51,7 +51,7 @@ const Menu = () => {
         </Button>
       </AntdMenu.Item>
       <AntdMenu.Item key="reports">
-        <Button type="link" href="http://localhost:5488/templates/Dc1dRyhvSA">
+        <Button type="link" href="http://localhost:5488/templates/Dc1dRyhvSA" target='_blank'>
           Informe de Proyectos
         </Button>
       </AntdMenu.Item>
