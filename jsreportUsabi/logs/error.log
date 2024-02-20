@@ -1,0 +1,131 @@
+2024-01-08T20:27:59.683Z - error: Error when processing render request 1
+(because) failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+Error: Failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at Interface.onClose (/home/miguel/project_workspace/jsreportUsabi/node_modules/@puppeteer/browsers/lib/cjs/launch.js:277:24)
+    at Interface.emit (node:events:526:35)
+    at Interface.close (node:internal/readline/interface:527:10)
+    at Socket.onend (node:internal/readline/interface:253:10)
+    at Socket.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=k8t0e99m7pbisy1, id=k8t0e99m7pbisy1
+2024-01-08T20:27:59.684Z - error: Rendering request 1 finished with error in 2063 ms rootId=k8t0e99m7pbisy1, id=k8t0e99m7pbisy1
+2024-01-08T20:33:13.272Z - error: Error when processing render request 1
+(because) failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+Error: Failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at Interface.onClose (/home/miguel/project_workspace/jsreportUsabi/node_modules/@puppeteer/browsers/lib/cjs/launch.js:277:24)
+    at Interface.emit (node:events:526:35)
+    at Interface.close (node:internal/readline/interface:527:10)
+    at Socket.onend (node:internal/readline/interface:253:10)
+    at Socket.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=chrtrqfoypix7fz, id=chrtrqfoypix7fz
+2024-01-08T20:33:13.272Z - error: Rendering request 1 finished with error in 1901 ms rootId=chrtrqfoypix7fz, id=chrtrqfoypix7fz
+2024-01-08T20:34:02.686Z - error: Error when processing render request 1
+(because) failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libcups.so.2: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+Error: Failed to launch the browser process!
+/home/miguel/.cache/puppeteer/chrome/linux-117.0.5938.149/chrome-linux64/chrome: error while loading shared libraries: libcups.so.2: cannot open shared object file: No such file or directory
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at Interface.onClose (/home/miguel/project_workspace/jsreportUsabi/node_modules/@puppeteer/browsers/lib/cjs/launch.js:277:24)
+    at Interface.emit (node:events:526:35)
+    at Interface.close (node:internal/readline/interface:527:10)
+    at Socket.onend (node:internal/readline/interface:253:10)
+    at Socket.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=9dqydzwion8djtd, id=9dqydzwion8djtd
+2024-01-08T20:34:02.686Z - error: Rendering request 1 finished with error in 1955 ms rootId=9dqydzwion8djtd, id=9dqydzwion8djtd
+2024-01-09T19:59:27.772Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at ClientRequest.<anonymous> (sandbox.js:30:5)
+    at ClientRequest.emit (node:events:514:28)
+    at TLSSocket.socketErrorListener (node:_http_client:495:9)
+    at TLSSocket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=jx3nrqwcfsxqott, id=jx3nrqwcfsxqott
+2024-01-09T20:00:12.445Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at ClientRequest.<anonymous> (sandbox.js:32:5)
+    at ClientRequest.emit (node:events:514:28)
+    at TLSSocket.socketErrorListener (node:_http_client:495:9)
+    at TLSSocket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=dpo8m0dj9005cnb, id=dpo8m0dj9005cnb
+2024-01-09T20:02:43.144Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at ClientRequest.<anonymous> (sandbox.js:32:5)
+    at ClientRequest.emit (node:events:514:28)
+    at TLSSocket.socketErrorListener (node:_http_client:495:9)
+    at TLSSocket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=yge2piej5qo44xz, id=yge2piej5qo44xz
+2024-01-09T20:10:52.820Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at IncomingMessage.<anonymous> (sandbox.js:26:9)
+    at IncomingMessage.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=alfat2wqnd6dftl, id=alfat2wqnd6dftl
+2024-01-09T20:19:39.917Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at IncomingMessage.<anonymous> (sandbox.js:27:9)
+    at IncomingMessage.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=t00eeezv0wsbxo9, id=t00eeezv0wsbxo9
+2024-01-09T20:19:41.050Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at IncomingMessage.<anonymous> (sandbox.js:27:9)
+    at IncomingMessage.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=w593k2m33rqgfl1, id=w593k2m33rqgfl1
+2024-01-09T20:20:39.870Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at IncomingMessage.<anonymous> (sandbox.js:25:7)
+    at IncomingMessage.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1408:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) rootId=005do02x1ucbzsa, id=005do02x1ucbzsa
+2024-01-09T20:22:22.209Z - error: Report render failed
+(because) done is not a function
+TypeError: done is not a function
+    at sandbox.js:43:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) rootId=gohos9xcb85ls3t, id=gohos9xcb85ls3t
+2024-01-11T18:36:57.137Z - error: Error when processing OData POST: /odata/assets Error: Entity name can not be empty
+    at module.exports (/home/miguel/project_workspace/jsreportUsabi/node_modules/@jsreport/jsreport-core/lib/shared/createError.js:10:13)
+    at module.exports (/home/miguel/project_workspace/jsreportUsabi/node_modules/@jsreport/jsreport-core/lib/main/validateEntityName.js:26:11)
+    at Object.insert (/home/miguel/project_workspace/jsreportUsabi/node_modules/@jsreport/jsreport-core/lib/main/store/collection.js:123:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

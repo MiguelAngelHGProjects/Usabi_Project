@@ -1,0 +1,13 @@
+{
+    "name": "usabi-data",
+    "scope": "global",
+    "shortid": "NOEOwvil2L",
+    "creationDate": {
+        "$$date": 1704830026790
+    },
+    "modificationDate": {
+        "$$date": 1705075251309
+    },
+    "_id": "cKRwYilNuUUxwPMh",
+    "$entitySet": "scripts"
+}

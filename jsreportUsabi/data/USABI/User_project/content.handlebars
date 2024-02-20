@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Informe</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    {{asset "styleusabi.css" "utf8"}}
+  </style>
+</head>
+<body>
+  <h1>Informacion de Proyectos por Usuario</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Proyectos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each usabiData.user_project_data}}
+        <tr>
+          <td>{{user_name}}</td>
+          <td>{{projects.length}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="chart-container">
+    <canvas class='projectsChart' id='userProjectsChart'></canvas>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var userData = [
+        {{#each usabiData.user_project_data}}
+          {
+            user_name: "{{user_name}}",
+            projects: Math.floor({{projects.length}})
+          },
+        {{/each}}
+      ];
+
+      var userNames = userData.map(function (data) {
+        return data.user_name;
+      });
+
+      var userProjectsCount = userData.map(function (data) {
+        return Math.min(data.projects, 10);
+      });
+
+      var ctx = document.getElementById('userProjectsChart');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: userNames,
+          datasets: [{
+            label: "Total de Proyectos",
+            data: userProjectsCount
+          }]
+        },
+        options: {
+          animation: {
+            duration: 0
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 10
+            },
+            x: {
+              ticks: {
+                precision: 0 
+              }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

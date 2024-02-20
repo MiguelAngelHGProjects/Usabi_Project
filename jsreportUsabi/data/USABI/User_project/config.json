@@ -1,0 +1,23 @@
+{
+    "name": "User_project",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": null,
+    "shortid": "Dc1dRyhvSA",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1704829116473
+    },
+    "modificationDate": {
+        "$$date": 1704999270127
+    },
+    "_id": "cHmbfoMZBSgRQ3ky",
+    "$entitySet": "templates",
+    "scripts": [
+        {
+            "shortid": "BJX1Jw82ce"
+        }
+    ]
+}
